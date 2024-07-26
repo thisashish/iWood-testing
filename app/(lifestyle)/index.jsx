@@ -5,21 +5,23 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
+import Entypo from '@expo/vector-icons/Entypo';
+
 
 const LifestylePage = () => {
   const navigation = useNavigation();
   const [selectedButton, setSelectedButton] = useState(null);
   const [seeMore, setSeeMore] = useState({
-    Beauty: true,
+    Beauty: false,
     Gaming: false,
     Parenting: false,
     Animals: false,
-    Fitness:false,
-    Photography:false,
-    Accessories:false,
-    Clothing:false,
-    Jewelry:false,
-    Healthlife:false,
+    Fitness: false,
+    Photography: false,
+    Accessories: false,
+    Clothing: false,
+    Jewelry: false,
+    Health: false
   });
 
   const navigateBack = () => {
@@ -33,12 +35,12 @@ const LifestylePage = () => {
       Gaming: false,
       Parenting: false,
       Animals: false,
-      Fitness:false,
-      Photography:false,
-      Accessories:false,
-      Clothing:false,
-      Jewelry:false,
-      Healthlife:false,
+      Fitness: false,
+      Photography: false,
+      Accessories: false,
+      Clothing: false,
+      Jewelry: false,
+      Health: false
     });
   };
 
@@ -50,16 +52,19 @@ const LifestylePage = () => {
     }
   };
 
-  const renderSection = (title, images, imageStyle) => {
+  const renderSection = (title, images, imageStyle, initialImageCount, nameStyle = {}, followersStyle = {},imageTextStyle) => {
     const showAll = selectedButton === title || seeMore[title];
-    const imagesToShow = showAll ? images : images.slice(0, 3);
+    const imagesToShow = showAll ? images : images.slice(0, initialImageCount);
 
     return (
       <View style={GStyle.sectionContainer} key={title}>
         <View style={GStyle.sectionHeader}>
           <Text style={GStyle.sectionTitle}>{title}</Text>
           <TouchableOpacity onPress={() => setSeeMore(prev => ({ ...prev, [title]: !prev[title] }))}>
-            <Text style={GStyle.sectionSeeMore}>{seeMore[title] ? 'See Less' : 'See More'}</Text>
+            <Text style={GStyle.sectionSeeMore}>{seeMore[title] ? 'See Less' : 'See More'}
+            <Entypo name="chevron-small-down"  />
+            </Text>
+            
           </TouchableOpacity>
         </View>
         <View style={GStyle.imageContainer}>
@@ -72,10 +77,11 @@ const LifestylePage = () => {
               >
                 <Image source={image.uri} style={styles.image} />
                 <View style={GStyle.imageFooter}>
-                  <Image source={{ uri: image.profileUri }} style={GStyle.profileImage} />
-                  <View>
-                    <Text style={GStyle.profileName}>{image.name}</Text>
-                    <Text style={GStyle.profileFollowers}>{image.followers}</Text>
+                
+                  <Image source={image.profileUri} style={GStyle.profileImage} />
+                  <View style={imageTextStyle}>
+                    <Text style={[GStyle.profileName, nameStyle]}>{image.name}</Text>
+                    <Text style={[GStyle.profileFollowers, followersStyle]}>{image.followers}</Text>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -103,96 +109,111 @@ const LifestylePage = () => {
         { uri: require('../assets/images/lifestyle/beauty/beauty10.png'), profileUri: 'https://example.com/profile6.jpg', name: '', followers: '60+M' },
         { uri: require('../assets/images/lifestyle/beauty/beauty11.png'), profileUri: 'https://example.com/profile6.jpg', name: '', followers: '60+M' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      2
     ),
     Gaming: renderSection(
       'Gaming Influencer',
       [
-        { uri: require('../assets/images/lifestyle/gaming1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
-        { uri: require('../assets/images/lifestyle/gaming2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
-        { uri: require('../assets/images/lifestyle/gaming3.png'), profileUri: 'https://example.com/profile6.jpg', name: 'Brand Name', followers: '60+M' },
-        { uri: require('../assets/images/lifestyle/gaming3.png'), profileUri: 'https://example.com/profile6.jpg', name: 'Brand Name', followers: '60+M' },
+        { uri: require('../assets/images/lifestyle/gaming1.png'), profileUri: require('../assets/images/profile.png'), name: 'Brand Name', followers: '' },
+        { uri: require('../assets/images/lifestyle/gaming2.png'), profileUri: require('../assets/images/profile.png'), name: 'Brand Name', followers: '50+M' },
+        { uri: require('../assets/images/lifestyle/gaming3.png'), profileUri: require('../assets/images/profile.png'), name: 'Brand Name', followers: '60+M' },
+        { uri: require('../assets/images/lifestyle/gaming3.png'), profileUri: require('../assets/images/profile.png'), name: 'Brand Name', followers: '60+M' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      3
     ),
     Parenting: renderSection(
       'Parenting Influencer',
       [
         { uri: require('../assets/images/lifestyle/parenting1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
         { uri: require('../assets/images/lifestyle/parenting2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
-        
+        { uri: require('../assets/images/lifestyle/parenting1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      2
     ),
     Animals: renderSection(
       'Animal Related Influencer',
       [
         { uri: require('../assets/images/lifestyle/animal1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
         { uri: require('../assets/images/lifestyle/animal2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
-         { uri: require('../assets/images/lifestyle/animal3.png'), profileUri: 'https://example.com/profile6.jpg', name: 'Brand Name', followers: '60+M' },
+        { uri: require('../assets/images/lifestyle/animal3.png'), profileUri: 'https://example.com/profile6.jpg', name: 'Brand Name', followers: '60+M' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      3,
+      styles.animalNameStyle,
+      styles.animalFollowersStyle,
+      styles.animalImageTextStyle
     ),
+
 
     Fitness: renderSection(
       'Fitness',
       [
-        { uri:require('../assets/images/lifestyle/fitness1.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/fitness2.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
+        { uri: require('../assets/images/lifestyle/fitness1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
+        { uri: require('../assets/images/lifestyle/fitness2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
+
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      2
     ),
+
     Photography: renderSection(
-      'Photography influencer',
+      'Photography Influencer',
       [
-        { uri:require('../assets/images/lifestyle/photography1.png'),profileUri:'https://example.com/profile4.jpg',name:'Ayushi Chore',followers:'1.23k Followers'},
-        { uri:require('../assets/images/lifestyle/photography2.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/photography3.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
+        { uri: require('../assets/images/lifestyle/photography1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
+        { uri: require('../assets/images/lifestyle/photography2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
+        { uri: require('../assets/images/lifestyle/photography3.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
       ],
-      
+      GStyle.squareImage,
+      3
     ),
+
     Accessories: renderSection(
       'Accessories',
       [
-        { uri:require('../assets/images/lifestyle/accessories1.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/accessories2.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/accessories3.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-
+        { uri: require('../assets/images/lifestyle/accessories1.png'), name: 'Accessories', followers: '36k Followers' },
+        { uri: require('../assets/images/lifestyle/accessories2.png'), name: 'Accessories', followers: '36k Followers' },
+        { uri: require('../assets/images/lifestyle/accessories3.png'), name: 'Accessories', followers: '36k Followers' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      2,
+      styles.accessoriesNameStyle,
+      styles.accessoriesFollowersStyle
     ),
+
     Clothing: renderSection(
-      'Clothing influencer',
+      'Clothing Influencer',
       [
-        { uri:require('../assets/images/lifestyle/clothing1.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/clothing2.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/clothing3.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-
+        { uri: require('../assets/images/lifestyle/clothing1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
+        { uri: require('../assets/images/lifestyle/clothing1.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
+        { uri: require('../assets/images/lifestyle/clothing1.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      3
     ),
+
     Jewelry: renderSection(
-      'Jewelry influencer',
+      'Jewelry Influencer',
       [
-        { uri:require('../assets/images/lifestyle/jewel1.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/jewel2.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/jewel3.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-
+        { uri: require('../assets/images/Jewelry1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
+        { uri: require('../assets/images/Jewelry2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
+        { uri: require('../assets/images/Jewelry3.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      3
     ),
-    Healthlife: renderSection(
-      'Healthy Life with Influencer',
+
+    Health: renderSection(
+      'Healthy Life With Influencer ',
       [
-        { uri:require('../assets/images/lifestyle/health1.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/health2.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-        { uri:require('../assets/images/lifestyle/health3.png'),profileUri:'https://example.com/profile4.jpg',name:'Brand Name',followers:''},
-
+        { uri: require('../assets/images/health1.png'), profileUri: 'https://example.com/profile4.jpg', name: 'Brand Name', followers: '' },
+        { uri: require('../assets/images/health2.png'), profileUri: 'https://example.com/profile5.jpg', name: 'Brand Name', followers: '50+M' },
       ],
-      GStyle.squareImage
+      GStyle.squareImage,
+      2
     ),
-    
-
 
   };
 
@@ -216,7 +237,7 @@ const LifestylePage = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          {['Beauty', 'Gaming', 'Parenting', 'Animals','Fitness','Phototgraphy','jewelley'].map((button) => (
+          {['Beauty', 'Gaming', 'Parenting', 'Animals'].map((button) => (
             <TouchableOpacity
               key={button}
               style={[
@@ -280,7 +301,11 @@ const styles = StyleSheet.create({
     color: Colors.white,
     marginLeft: 5,
   },
-  
+  image: {
+    marginLeft: 8,
+    // flex: 1,
+    // resizeMode: 'cover',
+  },
   flexRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -288,8 +313,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   imageWrapper: {
-    // flexBasis: '48%', 
-    // marginBottom: 10,
+
   },
   selectedButton: {
     backgroundColor: Colors.white,
@@ -297,7 +321,7 @@ const styles = StyleSheet.create({
   unselectedButton: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: Colors.secondary,
+    borderColor: Colors.white,
   },
   selectedButtonText: {
     color: Colors.black,
@@ -305,6 +329,31 @@ const styles = StyleSheet.create({
   unselectedButtonText: {
     color: Colors.white,
   },
+  accessoriesNameStyle: {
+    color: Colors.white,
+    fontSize: 12,
+    fontWeight: 'bold',
+    marginBottom: 0
+  },
+  accessoriesFollowersStyle: {
+    color: Colors.white,
+    fontSize: 7,
+    marginBottom: 20,
+    paddingTop: 0,
+    marginTop: 0
+  },
+  animalNameStyle:{
+// backgroundColor:Colors.primary
+  },
+
+  animalFollowersStyle:{
+
+  },
+
+  animalImageTextStyle:{
+backgroundColor:'red',
+
+  }
 });
 
 export default LifestylePage;

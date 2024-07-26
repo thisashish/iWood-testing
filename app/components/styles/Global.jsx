@@ -54,9 +54,10 @@ sectionContainer: {
   
 },
 squareImage: {
-  width: 100, // Adjust the width as needed
-  height: 100, // Same as width to keep it square
-  borderRadius: 8, // Optional: Adjust the border radius if you want rounded corners
+  // width: 100, 
+  // height: 100, 
+  // borderRadius: 8, 
+  
 },
 
 // Header of each section containing the title and see more button
@@ -112,14 +113,16 @@ profileImage: {
   width: 30,
   height: 30,
   borderRadius: 15,
-  marginRight: 10,
+  // marginRight: 10,
+  marginLeft:8 
 },
 
 // // Profile name text style
 profileName: {
   fontSize: 8,
   fontWeight: 'bold',
-  color: Colors.white, // Replace with your desired text color
+  color: Colors.white, 
+  
 },
 
 // Profile followers text style

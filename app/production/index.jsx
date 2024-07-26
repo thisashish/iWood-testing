@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons, FontAwesome,MaterialCommunityIcons,AntDesign,FontAwesome6,FontAwesome5 } from '@expo/vector-icons';
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
+import { MaterialIcons } from '@expo/vector-icons';
+
+
+
+
 
 const ProductionPage = () => {
     const navigation = useNavigation();
@@ -30,7 +35,7 @@ const ProductionPage = () => {
             </View>
 
             <View style={styles.bannerSection}>
-                <Image source={require('../assets/images/production/banner.png')} style={styles.bannerImage} />
+            <Image source={require('../assets/images/production/banner.png')} style={styles.bannerImage} />
                 <View style={styles.profileContainer}>
                     <Image source={require('../assets/images/production/profile.png')} style={styles.profileLarge} />
                 </View>
@@ -41,7 +46,11 @@ const ProductionPage = () => {
                 <Text style={styles.profileBio}>
                     Photoshoot | Series | Modeling | Fashion | Drama
                 </Text>
-                <Text style={styles.profileLink}>www.userlink.com</Text>
+                
+                <Text style={styles.profileLink}>4.5k Rating |<AntDesign name="link"  style={styles.profileLink} /> Portfolio Onine here</Text>
+
+               
+                
 
                 <View style={styles.profileButtons}>
                     <View style={styles.buttonContainer}>
@@ -54,16 +63,20 @@ const ProductionPage = () => {
                     </View>
                     <View style={styles.iconContainer}>
                         <TouchableOpacity style={styles.iconButton}>
-                            <FontAwesome name="search" size={24} color={Colors.white} />
+                        <MaterialIcons name="search" size={24}  color="white" />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.iconButton}>
-                            <Image source={require('../assets/images/profile/Facebook.png')} style={styles.socialMediaIcon} />
+                        <FontAwesome5 name="facebook" size={24} color="#316FF6" style={styles.socialMediaIcon} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.iconButton}>
-                            <Image source={require('../assets/images/profile/twitter_icon.png')} style={styles.socialMediaIcon} />
+                        <FontAwesome6 name="x-twitter" size={22} color="white"  style={styles.socialMediaIcon} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.iconButton}>
-                            <Image source={require('../assets/images/profile/youtube_icon.png')} style={styles.socialMediaIcon} />
+                        <FontAwesome6 name="youtube" size={22} color="red"  style={styles.socialMediaIcon} />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.button, styles.transparentButton,styles.transparentButton,selectedButton === 'dots-vertical' ? styles.selectedButton : null]}onPress={() => handleButtonPress('dots-vertical')}>
+                            <MaterialCommunityIcons name="dots-horizontal" size={24} color={Colors.grey} />
+                           
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -86,6 +99,40 @@ const ProductionPage = () => {
                 </View>
             </View>
 
+
+            <View style={styles.section}>
+    <View style={styles.sectionHeader}></View>
+    <View style={styles.sectionHeaderRow}>
+        <Text style={styles.sectionTitle}>Our Team</Text>
+        <TouchableOpacity>
+            <Text style={[styles.sectionSeeMore, { color: Colors.grey }]}>See More</Text>
+        </TouchableOpacity>
+        </View>
+        <ScrollView horizontal={true}>
+                <View style={styles.imageRow}>
+                <View style={styles.imageContainer}>
+                <Image source={require('../assets/images/profile/collabo1.png')} style={styles.circleImage} />
+                <Text style={styles.imageLabel}>Celebrity</Text>
+                </View>
+                <View style={styles.imageContainer}>
+                <Image source={require('../assets/images/profile/collabo2.png')} style={styles.circleImage} />
+                <Text style={styles.imageLabel}>Influencer</Text>
+                </View>
+                <View style={styles.imageContainer}>
+                    <Image source={require('../assets/images/profile/collabo3.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>Models</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
+                    <Image source={require('../assets/images/profile/collabo4.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>Brand Celebrity</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
+                    <Image source={require('../assets/images/profile/collabo5.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>Photos</Text>
+                    </View>
+    </View>
+    </ScrollView>
+</View>
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>My Portfolio</Text>
                 <View style={styles.buttonRow}>
@@ -144,6 +191,7 @@ const ProductionPage = () => {
                     <Image source={require('../assets/images/production/team6.png')} style={styles.gridImage} />
                     <Image source={require('../assets/images/production/team7.png')} style={styles.gridImage} />
                     <Image source={require('../assets/images/production/team8.png')} style={styles.gridImage} />
+                    <Image source={require('../assets/images/production/team8.png')} style={styles.gridImage} />
                 </View>
             </View>
         </ScrollView>
@@ -152,7 +200,7 @@ const ProductionPage = () => {
 
 const styles = StyleSheet.create({
     iconButton: {
-        marginLeft: 10,
+        marginLeft: 15,
     },
     container: {
         flex: 1,
@@ -174,6 +222,16 @@ const styles = StyleSheet.create({
         color: Colors.white,
         fontWeight: 'bold',
     },
+    sectionHeaderRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between', // Adjust this as needed
+        alignItems: 'center', // Vertically align items
+        // Add padding or margin if needed
+    },
+    imageRow: {
+        flexDirection: 'row', // Added to align images in a single line
+        // You can add justifyContent and alignItems if needed
+    },
     topRightIcons: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -183,6 +241,11 @@ const styles = StyleSheet.create({
         height: 30,
         borderRadius: 15,
         marginLeft: 10,
+    },
+    sectionSeeMore: {
+        fontSize: 14,
+        textAlign:'right',
+        
     },
     bannerSection: {
         position: 'relative',
@@ -210,10 +273,21 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         alignItems: 'center',
     },
+    imageContainer: {
+        alignItems: 'center', // Center the image and text
+        marginRight: 5, // Optional: Add some space between each container
+    },
     profileName: {
         fontSize: 22,
         fontWeight: 'bold',
         color: Colors.white,
+    },
+    imageLabel: {
+        marginTop: 3, // Optional: Space between image and text
+        textAlign: 'center',
+        color:Colors.white,
+        fontSize: 12,
+        // Add more text styling as needed
     },
     profileBio: {
         textAlign: 'left',
@@ -223,6 +297,14 @@ const styles = StyleSheet.create({
     },
     profileLink: {
         color: Colors.blue,
+    },
+    circleImage: {
+        width: 60,
+        height: 60,
+        borderRadius: 30, // Updated to match half of width/height for perfect circle
+        borderColor: Colors.primary,
+        borderWidth: 2,
+        marginRight: 10, // Optional: Add some space between images
     },
     profileButtons: {
         flexDirection: 'row',
@@ -259,25 +341,31 @@ const styles = StyleSheet.create({
     socialMediaSection: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 20,
+        marginTop:9,
         backgroundColor: Colors.dark.background,
+        borderColor: Colors.blue, // Border color
+    borderWidth: 2, // Border width
+    padding: 12, // Padding inside the border
+    borderRadius: 5, // Border radius
+    width: '90%', // Reduced width, adjust as needed
+    alignSelf: 'center', 
     },
     socialMediaItem: {
         flex: 1,
         alignItems: 'center',
     },
     socialMediaText: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: 'bold',
         color: Colors.white,
     },
     socialMediaSubText: {
-        fontSize: 15,
+        fontSize: 12,
         color: Colors.white,
     },
     separator: {
         width: 1,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         marginHorizontal: 10,
     },
     section: {
@@ -312,13 +400,15 @@ const styles = StyleSheet.create({
     imageGrid: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
+        justifyContent: 'fles-start',
     },
     gridImage: {
-        width: '31%',
-        height: 120,
-        marginVertical: 5,
+        width: '32%',
+        height: 150,
+        marginVertical: 2,
+        marginHorizontal:2,
     },
+    
 });
 
 export default ProductionPage;

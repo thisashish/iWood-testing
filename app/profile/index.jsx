@@ -3,7 +3,10 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'rea
 import { useNavigation } from '@react-navigation/native';
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons,AntDesign } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome6 } from '@expo/vector-icons';
+
 
 const ProfilePage = () => {
     const navigation = useNavigation();
@@ -12,6 +15,7 @@ const ProfilePage = () => {
     const handleButtonPress = (button) => {
         setSelectedButton(button);
     };
+    
 
     return (
         <ScrollView style={styles.container}>
@@ -51,44 +55,77 @@ const ProfilePage = () => {
             </View>
 
             <View style={styles.profileDetails}>
-                <Text style={styles.profileName}>User Name</Text>
+                <Text style={styles.profileName}>Marvel Joee</Text>
+                <View style={styles.statsContainer}>
+      <Text style={styles.stats}>11.5k Followers</Text>
+      <Text style={styles.separator}>|</Text>
+      <Text style={styles.stats}>345 Posts</Text>
+    </View>
+                
                 <Text style={styles.profileBio}>
+               
                     Lifestyle Influencer | Blogger | Beauty{'\n'}
                     Cosmo | Model | Jewelry | Fashion{'\n'}
-                    <Text style={styles.profileLink}>www.userlink.com</Text>
+                    
+                    <AntDesign name="link"  style={styles.profileLink} />
+{/*                     
+                    <Image source={require('../assets/images/profile/link.png')} style={styles.profileLink} /> */}
+                    <Text style={styles.profileLink}>Portfolio online here</Text>
+                    
+                    
                 </Text>
             </View>
 
             <View style={styles.socialMediaSection}>
                 <View style={styles.socialMediaItem}>
-                    <Image source={require('../assets/images/profile/Facebook.png')} style={styles.socialMediaIcon} />
+                <FontAwesome5 name="facebook" size={20} color="#316FF6" style={styles.socialMediaIcon} />
                     <Text style={styles.socialMediaText}>12.0k Followers</Text>
                 </View>
                 <View style={styles.socialMediaItem}>
-                    <Image source={require('../assets/images/profile/youtube_icon.png')} style={styles.socialMediaIcon} />
+                    {/* <Image source={require('../assets/images/profile/youtube_icon.png')} style={styles.socialMediaIcon} /> */}
+                    <AntDesign name="youtube" size={20}color="red" style={styles.socialMediaIcon}  />
                     <Text style={styles.socialMediaText}>12M Followers</Text>
                 </View>
                 <View style={styles.socialMediaItem}>
-                    <Image source={require('../assets/images/profile/twitter_icon.png')} style={styles.socialMediaIcon} />
+                <FontAwesome6 name="x-twitter" size={24} color="white"  style={styles.socialMediaIcon} />
                     <Text style={styles.socialMediaText}>12.0k Followers</Text>
                 </View>
             </View>
-
+            
             <View style={styles.section}>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Collaboration</Text>
                     <TouchableOpacity>
-                        <Text style={[styles.sectionSeeMore,{ color: Colors.whitesmoke }]}>See More</Text>
+                        <Text style={[styles.sectionSeeMore,{ color: Colors.grey }]}>See More</Text>
                     </TouchableOpacity>
                 </View>
+                <ScrollView horizontal={true}>
                 <View style={styles.imageRow}>
+                <View style={styles.imageContainer}>
                     <Image source={require('../assets/images/profile/collabo1.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>CD House</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
                     <Image source={require('../assets/images/profile/collabo2.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>Production</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
                     <Image source={require('../assets/images/profile/collabo3.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>C D Production</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
                     <Image source={require('../assets/images/profile/collabo4.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>CC House</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
                     <Image source={require('../assets/images/profile/collabo5.png')} style={styles.circleImage} />
+                    <Text style={styles.imageLabel}>Production</Text>
+                    </View>
                 </View>
+                </ScrollView>
             </View>
+           
+           
 
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>My Portfolio</Text>
@@ -226,12 +263,27 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     profileLink: {
-        color: Colors.white,
+        color: Colors.blue,
+        
+        marginRight:10,
     },
     profileButtons: {
         flexDirection: 'row',
         marginLeft: 20,
         marginTop: 60,
+    },
+    imageContainer: {
+        alignItems: 'center',
+       marginHorizontal:7,
+        // marginRight: 5,
+       
+    },
+    imageLabel: {
+        marginTop: 3,
+        textAlign: 'center',
+        color:Colors.white,
+        fontSize: 12,
+       
     },
     button: {
         paddingVertical: 3,
@@ -243,7 +295,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: Colors.grey,
-        fontSize: 8,
+        fontSize: 10,
         textAlign:'center',
         justifyContent:'center',
         marginTop:5
@@ -257,23 +309,28 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         marginTop: 20,
         paddingVertical: 10,
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
-        borderColor: Colors.grey,
+        borderColor:Colors.secondary, // Border color
+    borderWidth: 2, // Border width
+    padding: 10, // Padding inside the border
+    borderRadius: 2, // Border radius
+    width: '90%', // Reduced width, adjust as needed
+    alignSelf: 'center', 
     },
     socialMediaItem: {
         alignItems: 'center',
     },
     socialMediaIcon: {
-        width: 40,
-        height: 40,
+        width: 20,
+        height: 20,
         marginBottom: 5,
     },
     socialMediaText: {
         color: Colors.white,
+        fontSize:12,
+        marginLeft:5,
     },
     section: {
-        marginVertical: 20,
+        marginVertical: 14,
         paddingHorizontal: 20,
     },
     sectionHeader: {
@@ -288,11 +345,12 @@ const styles = StyleSheet.create({
     },
     sectionSeeMore: {
         fontSize: 14,
+        textAlign:'right',
         
     },
     imageRow: {
         flexDirection: 'row',
-        flexWrap: 'wrap',
+        
         justifyContent: 'space-between',
     },
     circleImage: {
@@ -317,7 +375,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderWidth: 1,
         borderColor: Colors.secondary,
-        marginHorizontal: 5,
+        marginHorizontal: 2,
         padding:5,   
     },
     selectedButton: {
@@ -330,13 +388,48 @@ const styles = StyleSheet.create({
     imageGrid: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
+        overflow: 'visible',
+        
     },
     gridImage: {
-        width: '30%',
-        height: 100,
-        marginBottom: 10,
+        width: '31%',
+        height: 170,
+        marginBottom: 3,
+        marginVertical: 3, 
+        marginHorizontal: 3,
+        borderWidth: 0, 
+        position: 'relative',
+        
     },
+    headerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 10,
+        
+      },
+      profileName: {
+        color: 'white',
+        fontSize: 18,
+      },
+    statsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        
+        
+      
+      },
+      stats: {
+        color: 'white',
+        fontSize: 14,
+      },
+      separator: {
+        color: 'white',
+        marginHorizontal: 4,
+        fontSize: 14,
+      },
+      
 });
 
 export default ProfilePage;

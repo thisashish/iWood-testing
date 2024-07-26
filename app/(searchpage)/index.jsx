@@ -169,19 +169,23 @@ const SearchPage = () => {
           'Influencer Work With Brand',
           'See More',
           [
-            { uri: require('../assets/images/Brand1.png') },
-            { uri: require('../assets/images/Brand2.png') },
-            { uri: require('../assets/images/Brand3.png') },
+            { uri: require('../assets/images/Brand1.png') , name: 'Brand Name' },
+
+            { uri: require('../assets/images/Brand2.png'),name: 'Brand Name' },
+            { uri: require('../assets/images/Brand3.png') ,name: 'Brand Name'},
           ],
-          GStyle.squareImage,
+          
+          GStyle.ge,
           (image) => (
             <View style={{ flex: 1 }}>
-              <Image source={image.uri} style={GStyle.squareImage} />
+              <Image source={image.uri} style={GStyle.squareImage}
+              />
               <View style={styles.brandNameContainer}>
                 <Text style={styles.brandNameText}>Brand Name</Text>
               </View>
             </View>
           )
+        
         )}
 
 
@@ -724,11 +728,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     alignItems: 'center',
     padding: 5,
+    
   },
   brandNameText: {
     color: Colors.white,
     fontWeight: 'bold',
+    backgroundColor:'black',
   },
+  
 
 });
 
