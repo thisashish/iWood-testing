@@ -18,6 +18,8 @@ const ProductionPage = () => {
         setSelectedButton(button);
         if (button === 'Brands') {
             navigation.navigate('ReelPage');
+        } else if (button === 'Modeling') {
+            navigation.navigate('ProductPage');
         }
     };
 
