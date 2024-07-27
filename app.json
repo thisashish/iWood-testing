@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "iWood-testing",
-    "slug": "iWood-testing",
+    "slug": "iwood-testing",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -38,8 +38,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "c742f0f2-a72b-4862-98d7-927dfad2338b"
+        "projectId": "efce8213-6e06-4174-b703-101bc5df1338"
       }
-    }
+    },
+    "owner": "ash20023443"
   }
 }

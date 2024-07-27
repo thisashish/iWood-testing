@@ -3,11 +3,12 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet 
 import { FontAwesome } from '@expo/vector-icons';
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
 import Group20Image from '../assets/images/Group 20.png';
 import Group18Image from '../assets/images/Group 18.png';
 import RectangleImage from '../assets/images/Rectangle.png';
 import Entypo from '@expo/vector-icons/Entypo';
+import { useNavigation } from 'expo-router';
 
 
 

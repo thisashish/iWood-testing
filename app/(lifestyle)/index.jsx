@@ -1,4 +1,3 @@
-// app/lifestyle/index.jsx
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
