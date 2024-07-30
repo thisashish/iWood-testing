@@ -20,6 +20,8 @@ const ProductionPage = () => {
             navigation.navigate('ReelPage');
         } else if (button === 'Modeling') {
             navigation.navigate('ProductPage');
+        }  else if(button ==='Photoshoot'){
+            navigation.navigate('subCatgory')
         }
     };
 

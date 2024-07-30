@@ -8,6 +8,8 @@ import ProfilePage from './profile/index';
 import ProductionPage from './production/index';
 import ReelPage from './(reelpage)/index'; 
 import ProductPage from './(product)/index';
+import subCatgory from './(subcategory)/index'
+
 
 
 const Stack = createNativeStackNavigator();
@@ -23,6 +25,7 @@ const App = () => {
         <Stack.Screen name="Production" component={ProductionPage} options={{headerShown:false}}/>
         <Stack.Screen name="ReelPage" component={ReelPage} options={{headerShown:false}}/>
         <Stack.Screen name="ProductPage" component={ProductPage} options={{headerShown:false}}/>
+        <Stack.Screen name="subCatgory" component={subCatgory} options={{headerShown:false}}/>
       </Stack.Navigator>
     // </NavigationContainer>
   );
