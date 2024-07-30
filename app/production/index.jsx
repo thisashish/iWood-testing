@@ -5,8 +5,7 @@ import { Ionicons, FontAwesome,MaterialCommunityIcons,AntDesign,FontAwesome6,Fon
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
 import { MaterialIcons } from '@expo/vector-icons';
-
-
+import CustomProfile from "../components/CustomProfile";
 
 
 
@@ -21,22 +20,13 @@ const ProductionPage = () => {
         } else if (button === 'Modeling') {
             navigation.navigate('ProductPage');
         }  else if(button ==='Photoshoot'){
-            navigation.navigate('subCatgory')
+            navigation.navigate('SubCatgory')
         }
     };
 
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.topSection}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={24} color={Colors.white} style={styles.icon} />
-                </TouchableOpacity>
-                <Text style={styles.headerText}>Profile</Text>
-                <View style={styles.topRightIcons}>
-                    <Ionicons name="notifications" size={24} color={Colors.white} style={styles.icon} />
-                    <Ionicons name="person-circle" size={24} color={Colors.white} style={styles.profileSmall} />
-                </View>
-            </View>
+             <CustomProfile onPress={() => navigation.goBack()} title="Profile" />
 
             <View style={styles.bannerSection}>
             <Image source={require('../assets/images/production/banner.png')} style={styles.bannerImage} />
@@ -214,7 +204,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 10,
+        padding: 40,
         backgroundColor: Colors.dark.background,
     },
     icon: {
@@ -228,13 +218,11 @@ const styles = StyleSheet.create({
     },
     sectionHeaderRow: {
         flexDirection: 'row',
-        justifyContent: 'space-between', // Adjust this as needed
-        alignItems: 'center', // Vertically align items
-        // Add padding or margin if needed
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
     },
     imageRow: {
-        flexDirection: 'row', // Added to align images in a single line
-        // You can add justifyContent and alignItems if needed
+        flexDirection: 'row', 
     },
     topRightIcons: {
         flexDirection: 'row',

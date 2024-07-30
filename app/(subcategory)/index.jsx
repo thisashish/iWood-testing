@@ -1,36 +1,37 @@
-import React, { useState } from 'react';
-import { View, Text, ImageBackground, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import { GStyle } from '../components/styles/Global';
-import { Colors } from '../components/styles/Colours';
-import { useNavigation } from '@react-navigation/native';
-import { AntDesign } from '@expo/vector-icons';
-import Entypo from '@expo/vector-icons/Entypo';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  StyleSheet,
+} from "react-native";
+import { FontAwesome, AntDesign } from "@expo/vector-icons";
 
+import { GStyle } from "../components/styles/Global";
+import { Colors } from "../components/styles/Colours";
+import { useNavigation } from "@react-navigation/native";
+import Entypo from "@expo/vector-icons/Entypo";
+import CustomProfile from "../components/CustomProfile";
 
+const SubCatgory = () => {
+  const navigation = useNavigation();
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [showSortOptions, setShowSortOptions] = useState(false);
 
-
-
-
-const subCatgory = () => {
-    const navigation = useNavigation();
-    const [selectedButton, setSelectedButton] = useState(null);
-    const [showSortOptions, setShowSortOptions] = useState(false);
-  const [selectedSortOption, setSelectedSortOption] = useState(null);
-
-  const handleSortOptionPress = (option) => {
-    setSelectedSortOption(option);
-    setShowSortOptions(false);
-  };
   const handleButtonPress = (button) => {
     setSelectedButton(button);
-};
+  };
+
   const renderSection = (title, seeMore, images, imageStyle) => (
     <View style={GStyle.sectionContainer}>
       <View style={GStyle.sectionHeader}>
         <Text style={GStyle.sectionTitle}>{title}</Text>
         <TouchableOpacity>
-          <Text style={GStyle.sectionSeeMore}>{seeMore}
+          <Text style={GStyle.sectionSeeMore}>
+            {seeMore}
             <Entypo name="chevron-small-down" />
           </Text>
         </TouchableOpacity>
@@ -39,7 +40,6 @@ const subCatgory = () => {
         <View style={styles.flexRow}>
           {images.map((image, index) => (
             <View key={index} style={[imageStyle, { marginRight: 10 }]}>
-
               <Image source={image.uri} style={styles.image} />
               <View style={GStyle.imageFooter}>
                 <Image source={image.profileUri} style={GStyle.profileImage} />
@@ -56,385 +56,598 @@ const subCatgory = () => {
   );
 
   return (
-    <ScrollView style={[GStyle.container, { backgroundColor: Colors.dark.background }]}>
+    <ScrollView
+      style={[GStyle.container, { backgroundColor: Colors.dark.background }]}
+    >
+       <CustomProfile onPress={() => navigation.goBack()} title="All Over India" />
       <View style={[GStyle.container, GStyle.paddingMd]}>
         <View style={styles.searchBar}>
           <FontAwesome name="search" size={24} color={Colors.grey} />
           <TextInput
             placeholder="Search Product,Store,brands"
             style={styles.searchInput}
-            placeholderTextColor='#d3d3d3'
+            placeholderTextColor="#d3d3d3"
           />
-          <FontAwesome name="microphone" size={24} color={Colors.grey} style={styles.micIcon} />
+          <FontAwesome
+            name="microphone"
+            size={24}
+            color={Colors.grey}
+            style={styles.micIcon}
+          />
         </View>
-       
 
         <View style={styles.categorySection}>
-          <Text style={styles.categoryTitle}>Fashion Categories around You</Text>
+          <Text style={styles.categoryTitle}>
+            Fashion Categories around You
+          </Text>
           <ScrollView horizontal={true}>
-          
-          <View style={styles.categoryRow}>
-          
-            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/men.png')} style={styles.men} />
-              </View>
-            
-            <Text style={styles.categoryText}>Men</Text>
-            </View> 
-            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat2.png')} style={styles.men} />
-            </View> 
-            <Text style={styles.categoryText}>Women</Text>
-            </View>
-            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat3.png')} style={styles.men} />
-              </View>
-              <Text style={styles.categoryText}>Accesories</Text>
+            <View style={styles.categoryRow}>
+              <View style={styles.categoryItem}>
+                <View style={styles.imageContainer}>
+                  <Image
+                    source={require("../assets/images/photoshoot/circle2.png")}
+                    style={styles.circle2}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/circle1.png")}
+                    style={styles.circle1}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/men.png")}
+                    style={styles.men}
+                  />
+                </View>
+
+                <Text style={styles.categoryText}>Men</Text>
               </View>
               <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat4.png')} style={styles.men} />
+                <View style={styles.imageContainer}>
+                  <Image
+                    source={require("../assets/images/photoshoot/circle2.png")}
+                    style={styles.circle2}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/circle1.png")}
+                    style={styles.circle1}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/cat2.png")}
+                    style={styles.men}
+                  />
+                </View>
+                <Text style={styles.categoryText}>Women</Text>
               </View>
-              <Text style={styles.categoryText}>Ethnic Dresses</Text>
+              <View style={styles.categoryItem}>
+                <View style={styles.imageContainer}>
+                  <Image
+                    source={require("../assets/images/photoshoot/circle2.png")}
+                    style={styles.circle2}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/circle1.png")}
+                    style={styles.circle1}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/cat3.png")}
+                    style={styles.men}
+                  />
+                </View>
+                <Text style={styles.categoryText}>Accesories</Text>
               </View>
-          
-          </View>
+              <View style={styles.categoryItem}>
+                <View style={styles.imageContainer}>
+                  <Image
+                    source={require("../assets/images/photoshoot/circle2.png")}
+                    style={styles.circle2}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/circle1.png")}
+                    style={styles.circle1}
+                  />
+                  <Image
+                    source={require("../assets/images/photoshoot/cat4.png")}
+                    style={styles.men}
+                  />
+                </View>
+                <Text style={styles.categoryText}>Ethnic Dresses</Text>
+              </View>
+            </View>
           </ScrollView>
-          </View>
-          </View>
+        </View>
+      </View>
 
-          <View style={styles.categorySection}>
-          <ScrollView horizontal={true}>
+      <View style={styles.categorySection}>
+        <ScrollView horizontal={true}>
           <View style={styles.categoryRow}>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat5.png')} style={styles.men} />
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat5.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Traditional Sets</Text>
-              </View>
-              <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat6.png')} style={styles.men} />
+            </View>
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat6.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Western Sets</Text>
-              </View>
-              <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat7.png')} style={styles.men} />
+            </View>
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat7.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Kids</Text>
-              </View>
-              <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat8.png')} style={styles.men} />
+            </View>
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat8.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Co-sets</Text>
-              </View>
-
-
-
-
+            </View>
           </View>
         </ScrollView>
-          </View>
+      </View>
 
-          <View style={styles.categorySection}>
-          <ScrollView horizontal={true}>
+      <View style={styles.categorySection}>
+        <ScrollView horizontal={true}>
           <View style={styles.categoryRow}>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat9.png')} style={styles.men} />
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat9.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Traditional Sets</Text>
-              </View>
-              <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat10.png')} style={styles.men} />
+            </View>
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat10.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Western Sets</Text>
-              </View>
-              <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/circle2.png')} style={styles.circle2} />
-              <Image source={require('../assets/images/photoshoot/circle1.png')} style={styles.circle1} />
-              <Image source={require('../assets/images/photoshoot/cat11.png')} style={styles.men} />
+            </View>
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require("../assets/images/photoshoot/circle2.png")}
+                  style={styles.circle2}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/circle1.png")}
+                  style={styles.circle1}
+                />
+                <Image
+                  source={require("../assets/images/photoshoot/cat11.png")}
+                  style={styles.men}
+                />
               </View>
               <Text style={styles.categoryText}>Kids</Text>
-              </View>
-              <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-            <View style={styles.newLaunch}>
-              <Text style={styles.newLaunchText}>NEW</Text>
-              <Text style={styles.newLaunchText}>LAUNCH</Text>
             </View>
-
+            <View style={styles.categoryItem}>
+              <View style={styles.imageContainer}>
+                <View style={styles.newLaunch}>
+                  <Text style={styles.newLaunchText}>NEW</Text>
+                  <Text style={styles.newLaunchText}>LAUNCH</Text>
+                </View>
               </View>
-             
-              </View>
-
-
-
-
+            </View>
           </View>
         </ScrollView>
-          </View>
+      </View>
 
-
-          <View style={styles.bannerSection}>
-          <Image source={require('../assets/images/photoshoot/brand.png')} style={styles.bannerImage} />
-          <View style={styles.slider}>
-            {[...Array(7).keys()].map((_, index) => (
-              <View key={index} style={styles.sliderDot} />
-            ))}
-          </View>
-         
+      <View style={styles.bannerSection}>
+        <View>
+          <Image
+            source={require("../assets/images/photoshoot/brand.png")}
+            style={styles.bannerImage}
+          />
+          <Text style={styles.firstRowText}>Festival Ethnic Collection</Text>
+          <Text style={styles.secondRowText}>Up To 35% OFF</Text>
         </View>
 
-        <View style={styles.section}>
-<View style={styles.buttonRow}>
-                    <TouchableOpacity
-                        style={[
-                            styles.portfolioButton,
-                            selectedButton === 'Sort' ? styles.selectedButton : null,
-                        ]}
-                        onPress={() => handleButtonPress('Sort')}
-                    >
-                        <Text style={[styles.buttonText, selectedButton === 'Sort' ? styles.selectedButtonText : null]}>Sort<Entypo name="chevron-small-down"  /></Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={[
-                            styles.portfolioButton,
-                            selectedButton === 'Near Me' ? styles.selectedButton : null,
-                        ]}
-                        onPress={() => handleButtonPress('Near Me')}
-                    >
-                        <Text style={[styles.buttonText, selectedButton === 'Near Me' ? styles.selectedButtonText : null]}>Near Me</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={[
-                            styles.portfolioButton,
-                            selectedButton === 'Top Rated' ? styles.selectedButton : null,
-                        ]}
-                        onPress={() => handleButtonPress('Top Rated')}
-                    >
-                        <Text style={[styles.buttonText, selectedButton === 'Top Rated' ? styles.selectedButtonText : null]}>Top Rated</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={[
-                            styles.portfolioButton,
-                            selectedButton === 'Offers' ? styles.selectedButton : null,
-                        ]}
-                        onPress={() => handleButtonPress('Offers')}
-                    >
-                        <Text style={[styles.buttonText, selectedButton === 'Offers' ? styles.selectedButtonText : null]}>Offers</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={[
-                            styles.portfolioButton,
-                            selectedButton === 'Save' ? styles.selectedButton : null,
-                        ]}
-                        onPress={() => handleButtonPress('Save')}
-                    >
-                        <Text style={[styles.buttonText, selectedButton === 'Save' ? styles.selectedButtonText : null]}>Save</Text>
-                    </TouchableOpacity>
-                    
-</View>
-</View>
+        <View style={styles.slider}>
+          {[...Array(7).keys()].map((_, index) => (
+            <View key={index} style={styles.sliderDot} />
+          ))}
+        </View>
+      </View>
 
-<View style={styles.brandsSection}>
-          
-            <View style={styles.brandsRow}>
-              <Image source={require('../assets/images/photoshoot/dress1.png')} style={styles.reelimage} />
-              <Image source={require('../assets/images/photoshoot/dress2.png')} style={styles.reelimage} />
-            </View>
-          </View>
-          <View style={styles.brandsSection}>
-          <View style={styles.brandsRow}>
-              <Image source={require('../assets/images/photoshoot/dress3.png')} style={styles.reelimage} />
-              <Image source={require('../assets/images/photoshoot/dress4.png')} style={styles.reelimage} />
-            </View>
-            </View>
-            <View style={styles.brandsSection}>
-            <View style={styles.brandsRow}>
-              <Image source={require('../assets/images/photoshoot/dress5.png')} style={styles.reelimage} />
-              <Image source={require('../assets/images/photoshoot/dress6.png')} style={styles.reelimage} />
-            </View>
-            </View>
-            <View style={styles.brandsSection}>
-            <View style={styles.brandsRow}>
-              <Image source={require('../assets/images/photoshoot/dress7.png')} style={styles.reelimage} />
-              <Image source={require('../assets/images/photoshoot/dress8.png')} style={styles.reelimage} />
-            </View>
-            </View>
-
-            <View style={styles.brandsSection}>
-            <Text style={styles.brandsTitle}>Stores you can’t miss</Text>
-            <View style={styles.categoryRow}>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-                            </View>
-                            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-                            </View>
-                            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-               </View>
-               <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-               </View>
-
-              </View>
-              </View>
-
-
-              <View style={styles.brandsSection}>
-            
-            <View style={styles.categoryRow}>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-                            </View>
-                            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-                            </View>
-                            <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-               </View>
-               <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/photoshoot/cir.png')} style={styles.circle2} />
-              </View>  
-               </View>
-
-              </View>
-              </View>
-
-
-
-
-
-          <View style={styles.bigDealsSection}>
-            <Image source={require('../assets/images/photoshoot/sale.png')} />
-          </View>
-
-
-          <Text style={styles.recentTitle}>Deel Ends in <Text style={styles.sale}> 13h : 57m : 46s</Text> </Text>
-         
-        
-
-        <View style={styles.recentReelsSection}>
-          
-          <View style={styles.reelsRow}>
-            <Image source={require('../assets/images/photoshoot/deal1.png')} style={styles.reelImage} />
-            <Image source={require('../assets/images/photoshoot/deal2.png')} style={styles.reelImage} />
-            <Image source={require('../assets/images/photoshoot/deal3.png')} style={styles.reelImage} />
-          </View>
-          </View>
-
-
-          <View style={styles.recentReelsSection}>
-          <View style={styles.recentReelsHeader}>
-            <Text style={styles.recentReelsTitle}> You Might also Like</Text>
-            <Text style={styles.recentReelsTitle}>
-              <AntDesign name="caretright" color={Colors.white} />
-              Watch more
+      <View style={styles.section}>
+        <View style={styles.buttonRow}>
+          <TouchableOpacity
+            style={[
+              styles.portfolioButton,
+              selectedButton === "Sort" ? styles.selectedButton : null,
+            ]}
+            onPress={() => handleButtonPress("Sort")}
+          >
+            <Text
+              style={[
+                styles.buttonText,
+                selectedButton === "Sort" ? styles.selectedButtonText : null,
+              ]}
+            >
+              Sort
+              <Entypo name="chevron-small-down" />
             </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.portfolioButton,
+              selectedButton === "Near Me" ? styles.selectedButton : null,
+            ]}
+            onPress={() => handleButtonPress("Near Me")}
+          >
+            <Text
+              style={[
+                styles.buttonText,
+                selectedButton === "Near Me" ? styles.selectedButtonText : null,
+              ]}
+            >
+              Near Me
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.portfolioButton,
+              selectedButton === "Top Rated" ? styles.selectedButton : null,
+            ]}
+            onPress={() => handleButtonPress("Top Rated")}
+          >
+            <Text
+              style={[
+                styles.buttonText,
+                selectedButton === "Top Rated"
+                  ? styles.selectedButtonText
+                  : null,
+              ]}
+            >
+              Top Rated
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.portfolioButton,
+              selectedButton === "Offers" ? styles.selectedButton : null,
+            ]}
+            onPress={() => handleButtonPress("Offers")}
+          >
+            <Text
+              style={[
+                styles.buttonText,
+                selectedButton === "Offers" ? styles.selectedButtonText : null,
+              ]}
+            >
+              Offers
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.portfolioButton,
+              selectedButton === "Save" ? styles.selectedButton : null,
+            ]}
+            onPress={() => handleButtonPress("Save")}
+          >
+            <Text
+              style={[
+                styles.buttonText,
+                selectedButton === "Save" ? styles.selectedButtonText : null,
+              ]}
+            >
+              Save
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
+      <View style={styles.brandsSection}>
+        <View style={styles.brandsRow}>
+          <Image
+            source={require("../assets/images/photoshoot/dress1.png")}
+            style={styles.reelimage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/dress2.png")}
+            style={styles.reelimage}
+          />
+        </View>
+      </View>
+      <View style={styles.brandsSection}>
+        <View style={styles.brandsRow}>
+          <Image
+            source={require("../assets/images/photoshoot/dress3.png")}
+            style={styles.reelimage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/dress4.png")}
+            style={styles.reelimage}
+          />
+        </View>
+      </View>
+      <View style={styles.brandsSection}>
+        <View style={styles.brandsRow}>
+          <Image
+            source={require("../assets/images/photoshoot/dress5.png")}
+            style={styles.reelimage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/dress6.png")}
+            style={styles.reelimage}
+          />
+        </View>
+      </View>
+      <View style={styles.brandsSection}>
+        <View style={styles.brandsRow}>
+          <Image
+            source={require("../assets/images/photoshoot/dress7.png")}
+            style={styles.reelimage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/dress8.png")}
+            style={styles.reelimage}
+          />
+        </View>
+      </View>
+
+      <View style={styles.brandsSection}>
+        <Text style={styles.brandsTitle}>Stores you can’t miss</Text>
+        <View style={styles.categoryRow}>
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
           </View>
-          <View style={styles.reactRow}>
-            <Image source={require('../assets/images/photoshoot/like1.png')} style={styles.bnameImage} />
-            <Image source={require('../assets/images/photoshoot/like2.png')} style={styles.bnameImage} />
-            <Image source={require('../assets/images/photoshoot/like3.png')} style={styles.bnameImage} />
-          </View>
-            </View>
-
-            <View style={styles.recentReelsSection}>
-          <View style={styles.recentReelsHeader}>
-            <Text style={styles.recentReelsTitle}> You Might also Like</Text>
-            </View>
-            <View style={styles.reactRow}>
-            <Image source={require('../assets/images/photoshoot/like4.png')} style={styles.bnameImage} />
-            <Image source={require('../assets/images/photoshoot/like5.png')} style={styles.bnameImage} />
-            <Image source={require('../assets/images/photoshoot/like6.png')} style={styles.bnameImage} />
-          </View>
-            </View>
-
-
-            <View style={styles.recentReelsSection}>
-            <View style={styles.recentReelsHeader}>
-              <Text style={styles.recentReelsTitle}>Continue Browsing These Styles</Text>
-              <Text style={styles.recentReelsTitle}>
-                <AntDesign name="caretright" color={Colors.white} />
-                Watch more
-              </Text>
-
-            </View>
-            <View style={styles.reactRow}>
-              <Image source={require('../assets/images/product-local/reel1.png')} style={styles.bnameImage} />
-              <Image source={require('../assets/images/product-local/reel2.png')} style={styles.bnameImage} />
-              <Image source={require('../assets/images/product-local/reel3.png')} style={styles.bnameImage} />
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
             </View>
           </View>
-
-          <View style={styles.brandsSection}>
-          <Text style={styles.recentReelsTitle}>You Might also Like</Text>
-          <View style={styles.brandsRow}>
-            <Image source={require('../assets/images/photoshoot/cap1.png')} style={styles.reelimage} />
-            <Image source={require('../assets/images/photoshoot/cap2.png')} style={styles.reelimage} />
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
           </View>
         </View>
-        <View style={styles.brandsSection}>
+      </View>
+
+      <View style={styles.brandsSection}>
+        <View style={styles.categoryRow}>
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require("../assets/images/photoshoot/cir.png")}
+                style={styles.circle2}
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+
+      <View style={styles.bigDealsSection}>
+        <Image source={require("../assets/images/photoshoot/sale.png")} />
+      </View>
+
+      <Text style={styles.recentTitle}>
+        Deel Ends in <Text style={styles.sale}> 13h : 57m : 46s</Text>{" "}
+      </Text>
+
+      <View style={styles.recentReelsSection}>
+        <View style={styles.reelsRow}>
+          <Image
+            source={require("../assets/images/photoshoot/deal1.png")}
+            style={styles.reelImage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/deal2.png")}
+            style={styles.reelImage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/deal3.png")}
+            style={styles.reelImage}
+          />
+        </View>
+      </View>
+
+      <View style={styles.recentReelsSection}>
+        <View style={styles.recentReelsHeader}>
+          <Text style={styles.recentReelsTitle}> You Might also Like</Text>
+          <Text style={styles.recentReelsTitle}>
+            <AntDesign name="caretright" color={Colors.white} />
+            Watch more
+          </Text>
+        </View>
+        <View style={styles.reactRow}>
+          <Image
+            source={require("../assets/images/photoshoot/like1.png")}
+            style={styles.bnameImage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/like2.png")}
+            style={styles.bnameImage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/like3.png")}
+            style={styles.bnameImage}
+          />
+        </View>
+      </View>
+
+      <View style={styles.recentReelsSection}>
+        <View style={styles.recentReelsHeader}>
+          <Text style={styles.recentReelsTitle}> You Might also Like</Text>
+        </View>
+        <View style={styles.reactRow}>
+          <Image
+            source={require("../assets/images/photoshoot/like4.png")}
+            style={styles.bnameImage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/like5.png")}
+            style={styles.bnameImage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/like6.png")}
+            style={styles.bnameImage}
+          />
+        </View>
+      </View>
+
+      <View style={styles.recentReelsSection}>
+        <View style={styles.recentReelsHeader}>
+          <Text style={styles.recentReelsTitle}>
+            Continue Browsing These Styles
+          </Text>
+          <Text style={styles.recentReelsTitle}>
+            <AntDesign name="caretright" color={Colors.white} />
+            Watch more
+          </Text>
+        </View>
+        <View style={styles.reactRow}>
+          <Image
+            source={require("../assets/images/product-local/reel1.png")}
+            style={styles.bnameImage}
+          />
+          <Image
+            source={require("../assets/images/product-local/reel2.png")}
+            style={styles.bnameImage}
+          />
+          <Image
+            source={require("../assets/images/product-local/reel3.png")}
+            style={styles.bnameImage}
+          />
+        </View>
+      </View>
+
+      <View style={styles.brandsSection}>
+        <Text style={styles.recentReelsTitle}>You Might also Like</Text>
         <View style={styles.brandsRow}>
-            <Image source={require('../assets/images/photoshoot/cap3.png')} style={styles.reelimage} />
-            <Image source={require('../assets/images/photoshoot/cap4.png')} style={styles.reelimage} />
-          </View>
-          </View>
+          <Image
+            source={require("../assets/images/photoshoot/cap1.png")}
+            style={styles.reelimage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/cap2.png")}
+            style={styles.reelimage}
+          />
+        </View>
+      </View>
+      <View style={styles.brandsSection}>
+        <View style={styles.brandsRow}>
+          <Image
+            source={require("../assets/images/photoshoot/cap3.png")}
+            style={styles.reelimage}
+          />
+          <Image
+            source={require("../assets/images/photoshoot/cap4.png")}
+            style={styles.reelimage}
+          />
+        </View>
+      </View>
 
-
-
-
-
-
-
-       
-
-        {/* <View style={styles.bigDealsSection}>
+      {/* <View style={styles.bigDealsSection}>
           <ImageBackground source={require('../assets/images/product-local/rectangle-hot.png')} style={styles.rectangleHotImage}>
             
             <Image source={require('../assets/images/product-local/ellipse1.png')} style={styles.ellipse1Image} />
@@ -563,18 +776,41 @@ const subCatgory = () => {
           <Image source={require('../assets/images/product-local/shorts2.png')} style={styles.reelimage} />
         </View>
       </View> */}
-
     </ScrollView>
   );
 };
 
-
-
-
-const styles = StyleSheet.create({searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#36454F',
+const styles = StyleSheet.create({
+  topSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 30,
+    backgroundColor: Colors.dark.background,
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
+  headerText: {
+    fontSize: 18,
+    color: Colors.white,
+    fontWeight: "bold",
+  },
+  topRightIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  profileSmall: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    marginLeft: 10,
+  },
+  searchBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#36454F",
     paddingHorizontal: 10,
     paddingVertical: 8,
     marginTop: 20,
@@ -596,7 +832,6 @@ const styles = StyleSheet.create({searchBar: {
     marginTop: 15,
     marginHorizontal: 5,
     marginBottom: 30,
-
   },
   searchInput: {
     flex: 1,
@@ -607,51 +842,44 @@ const styles = StyleSheet.create({searchBar: {
     marginLeft: 10,
   },
 
-
   image: {
     flex: 1,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
-  arrowImage:{
-    color:Colors.white,
-  },  
+  arrowImage: {
+    color: Colors.white,
+  },
   flexRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 10,
   },
 
   categorySection: {
     padding: 10,
-
-
   },
   section: {
     paddingHorizontal: 20,
     marginTop: 10,
-},
+  },
   scrollView: {
     marginBottom: 10, // Adjust as needed
   },
   categoryTitle: {
     fontSize: 18,
-    color: Colors.white
-
+    color: Colors.white,
   },
   categoryRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginVertical: 10,
     // paddingRight:5,
-
-
   },
   categoryItem: {
     flex: 1,
-    alignItems: 'center',
-    color: 'red',
+    alignItems: "center",
+    color: "red",
     marginRight: 10,
-
   },
   reelimage: {
     marginHorizontal: 5, // Add horizontal margin to each image
@@ -661,59 +889,58 @@ const styles = StyleSheet.create({searchBar: {
     height: 85,
     borderRadius: 25,
     marginLeft: 8,
-    marginRight: 8
-
+    marginRight: 8,
   },
   categoryText: {
     marginTop: 5,
-    textAlign: 'center',
+    textAlign: "center",
     color: Colors.white,
-    fontSize: 12
+    fontSize: 12,
   },
   imageContainer: {
-    position: 'relative',
-    width: 85,  // Adjust the size as needed
+    position: "relative",
+    width: 85, // Adjust the size as needed
     height: 85, // Adjust the size as needed
   },
   circle2: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
   },
   circle1: {
-    position: 'absolute',
-    width: '90%',
-    height: '90%',
-    top: '5%',
-    left: '5%',
-    resizeMode: 'contain',
+    position: "absolute",
+    width: "90%",
+    height: "90%",
+    top: "5%",
+    left: "5%",
+    resizeMode: "contain",
   },
   men: {
-    position: 'absolute',
-    width: '60%',
-    height: '60%',
-    top: '20%',
-    left: '20%',
-    resizeMode: 'contain',
+    position: "absolute",
+    width: "60%",
+    height: "60%",
+    top: "20%",
+    left: "20%",
+    resizeMode: "contain",
   },
   categoryText: {
     marginTop: 5,
     fontSize: 12,
-    color:Colors.white,
+    color: Colors.white,
   },
   newLaunch: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     height: 100,
   },
   newLaunchText: {
-    textAlign: 'center',
-    color: Colors.white
+    textAlign: "center",
+    color: Colors.white,
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginVertical: 10,
   },
   button: {
@@ -721,13 +948,13 @@ const styles = StyleSheet.create({searchBar: {
     paddingVertical: 10,
     marginHorizontal: 7,
     borderRadius: 5,
-    alignItems: 'center',
+    alignItems: "center",
   },
   selectedButton: {
     backgroundColor: Colors.blue,
   },
   unselectedButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: Colors.blue,
   },
@@ -736,20 +963,19 @@ const styles = StyleSheet.create({searchBar: {
   },
   unselectedButtonText: {
     color: Colors.white,
-
   },
 
   bannerSection: {
     padding: 10,
   },
   bannerImage: {
-    width: '100%',
+    width: "100%",
     marginVertical: 10,
   },
   slider: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   sliderDot: {
     width: 30,
@@ -763,34 +989,33 @@ const styles = StyleSheet.create({searchBar: {
     padding: 10,
   },
   recentReelsHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   recentReelsTitle: {
     color: Colors.white,
-
-  },recentTitle:{
-  color:Colors.white,
-  textAlign:'center',
   },
-  
+  recentTitle: {
+    color: Colors.white,
+    textAlign: "center",
+  },
+
   girl1Image: {
-    position: 'absolute',
+    position: "absolute",
     right: 0,
     top: 25,
     width: 180,
     height: 185,
     marginTop: 0,
-
   },
   reelsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 10,
   },
   reactRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 0,
   },
   reelImage: {
@@ -800,151 +1025,157 @@ const styles = StyleSheet.create({searchBar: {
 
   bigDealsSection: {
     padding: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   rectangleHotImage: {
-    width: '100%',
+    width: "100%",
     height: 150,
-    position: 'relative',
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    position: "relative",
+    resizeMode: "cover",
+    justifyContent: "center",
     marginTop: 50,
   },
   rectangleHotImages: {
-    width: '100%',
+    width: "100%",
     height: 150,
-    position: 'relative',
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    position: "relative",
+    resizeMode: "cover",
+    justifyContent: "center",
     marginTop: 20,
-
   },
   ellipseImage: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     top: 0,
     width: 220,
     height: 122,
-    marginHorizontal:0,
+    marginHorizontal: 0,
   },
   ellipse1Image: {
-    
     top: 0,
     width: 270,
-    height:150,
-    marginHorizontal:0,
-    right:40,
-
-
+    height: 150,
+    marginHorizontal: 0,
+    right: 40,
   },
   bigDealsContent: {
-    position: 'absolute',
+    position: "absolute",
     left: 20,
     top: 10,
   },
   bigDealsText: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
   },
   shopNowButton: {
-    backgroundColor: '#0698FB',
+    backgroundColor: "#0698FB",
     padding: 10,
     borderRadius: 10,
     marginTop: 25,
     width: 125,
-    height:40,
-    marginRight:200,
-
-
+    height: 40,
+    marginRight: 200,
   },
   shopNowText: {
-    color: '#fff',
+    color: "#fff",
   },
   girlImage: {
-    position: 'absolute',
+    position: "absolute",
     right: 0,
     top: 25,
     width: 180,
     height: 185,
     marginTop: 0,
-
-
   },
   girlImages: {
-    position: 'absolute',
+    position: "absolute",
     right: 25,
     top: 0,
 
     width: 180,
     height: 185,
     marginTop: 0,
-
   },
   skincareSection: {
     padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   skincareItem: {
-    width: '30%',
+    width: "30%",
   },
   skincareImage: {
-    width: '100%',
+    width: "100%",
     height: 100,
   },
   skincareText: {
     marginTop: 5,
-    textAlign: 'center',
+    textAlign: "center",
   },
   discountText: {
-    textAlign: 'center',
-    color: '#f00',
+    textAlign: "center",
+    color: "#f00",
   },
   brandsSection: {
     padding: 10,
-    marginTop:0,
+    marginTop: 0,
   },
   brandsTitle: {
     fontSize: 18,
 
     color: Colors.white,
-    textAlign: 'center',
+    textAlign: "center",
   },
   brandsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 5,
   },
   brandsImage: {
-    width: '48%',
+    width: "48%",
     height: 100,
-
   },
   buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 20,
-},
-portfolioButton: {
+  },
+  portfolioButton: {
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: Colors.secondary,
-   marginLeft:5,
-},
-selectedButton: {
+    marginLeft: 5,
+  },
+  selectedButton: {
     backgroundColor: Colors.blue,
-},
-selectedButtonText: {
+  },
+  selectedButtonText: {
     color: Colors.white,
-},
-buttonText: {
-  color: Colors.grey,
-  fontSize: 12,
-},
+  },
+  buttonText: {
+    color: Colors.grey,
+    fontSize: 12,
+  },
 
+  firstRowText: {
+    marginLeft: 12,
+    position: "absolute",
+    bottom: 30,
+    color: Colors.white,
+    fontWeight: "bold",
+    fontSize: 20,
+    fontFamily: "Sans-serif",
+  },
+  secondRowText: {
+    marginLeft: 12,
+    fontSize: 8,
+    position: "absolute",
+    bottom: 15,
+    color: Colors.whitesmoke,
+  },
 });
 
-export default subCatgory;
+export default SubCatgory;
