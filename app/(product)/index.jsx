@@ -10,6 +10,7 @@ import CategorySection from '../components/CategorySection';
 import CategoryItem from '../components/CategoryItem';
 
 
+
 const ProductPage = () => {
 
   const navigation = useNavigation();
@@ -142,14 +143,26 @@ const ProductPage = () => {
           <View style={styles.recentReelsHeader}>
             <Text style={styles.recentReelsTitle}>Recent Reels</Text>
             <Text style={styles.recentReelsTitle}>
-              <AntDesign name="caretright" color={Colors.white} />
+            <AntDesign name="caretright" size={15} color="white" />
               Watch more
             </Text>
           </View>
           <View style={styles.reelsRow}>
-            <Image source={require('../assets/images/product-local/reel1.png')} style={styles.reelImage} />
+            <View>
+            <Image source={require('../assets/images/product-local/reel1.png')}  style={styles.reelImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.play} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.play}/> 
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/reel2.png')} style={styles.reelImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.play} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.play}/> 
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/reel3.png')} style={styles.reelImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.play} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.play}/> 
+            </View>
           </View>
         </View>
 
@@ -195,8 +208,16 @@ const ProductPage = () => {
           <View style={styles.brandsSection}>
             <Text style={styles.brandsTitle}>Brands Of The weeks</Text>
             <View style={styles.brandsRow}>
+              <View>
               <Image source={require('../assets/images/product-local/brands1.png')} style={styles.reelimage} />
+              <AntDesign name="caretright" size={20} color="white"   style={styles.playy} />
+              <Image source={require('../assets/images/product-local/circc.png')} style={styles.playy}/>
+              </View>
+              <View>
               <Image source={require('../assets/images/product-local/brands2.png')} style={styles.reelimage} />
+              <AntDesign name="caretright" size={20} color="white"   style={styles.playy} />
+              <Image source={require('../assets/images/product-local/circc.png')} style={styles.playy}/>
+              </View>
             </View>
           </View>
           <View style={styles.bigDealsSection}>
@@ -207,29 +228,67 @@ const ProductPage = () => {
           <Text style={styles.recentReelsTitle}>Deel Ends in <Text style={styles.sale}> 13h : 57m : 46s</Text> </Text>
 
           <View style={styles.reactRow}>
-            <Image source={require('../assets/images/product-local/bname1.png')} style={styles.bnameImage} />
-            <Image source={require('../assets/images/product-local/bname2.png')} style={styles.bnameImage} />
+        <View>
+        <Image source={require('../assets/images/product-local/bname1.png')} style={styles.bnameImage} />
+            <Text style={styles.firstlineText}>Brands Name</Text>
+              <Text style={styles.secondlineText}>Under Rs.499</Text>
+              <Text style={styles.thirdlineText}>+Extra 20% OFF</Text>
+        </View>
+          <View>
+          <Image source={require('../assets/images/product-local/bname2.png')} style={styles.bnameImage} />
+          <Text style={styles.firstlineText}>Brands Name</Text>
+          <Text style={styles.secondlineText}>Under Rs.499</Text>
+          <Text style={styles.thirdlineText}>+Extra 20% OFF</Text>
+          </View>
+            <View>
             <Image source={require('../assets/images/product-local/bname3.png')} style={styles.bnameImage} />
+            <Text style={styles.firstlineText}>Brands Name</Text>
+            <Text style={styles.secondlineText}>Under Rs.499</Text>
+            <Text style={styles.thirdlineText}>+Extra 20% OFF</Text>
+            </View>
+          
           </View>
 
-
-
+          </View>
+          <View style={styles.bigDealsSections}>
           <Text style={styles.recentReelsTitle}>  Most Loved Brands</Text>
           <View style={styles.reactRow}>
+            <View>
             <Image source={require('../assets/images/product-local/shoes.png')} style={styles.bnameImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.playy} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.playy}/>
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/beg.png')} style={styles.bnameImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.playy} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.playy}/>
+            </View>
 
           </View>
+         
 
           <Text style={styles.recentReelsTitle}>  Budget Buys</Text>
           <View style={styles.reactRow}>
+            <View>
             <Image source={require('../assets/images/product-local/budget1.png')} style={styles.bnameImage} />
+            <Text style={styles.firstText}>Dresses</Text>
+              <Text style={styles.secondText}>Under Rs.499</Text>
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/budget2.png')} style={styles.bnameImage} />
+            <Text style={styles.firstText}>Beauty</Text>
+            <Text style={styles.secondText}>Under Rs.299</Text>
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/budget3.png')} style={styles.bnameImage} />
+            <Text style={styles.firstText}>Perfume</Text>
+            <Text style={styles.secondText}>Under Rs.199</Text>
+            </View>
+          </View>
           </View>
 
 
-        </View>
+        
 
 
 
@@ -246,17 +305,49 @@ const ProductPage = () => {
 
           </View>
           <View style={styles.reactRow}>
+            <View>
             <Image source={require('../assets/images/product-local/inf1.png')} style={styles.bnameImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/inf2.png')} style={styles.bnameImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+            </View>
+            <View>
             <Image source={require('../assets/images/product-local/inf3.png')} style={styles.bnameImage} />
+            <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+            <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+            </View>
           </View>
 
 
           <Text style={styles.recentReelsTitle}>  You Might also like</Text>
           <View style={styles.reactRow}>
+            <ImageBackground>
             <Image source={require('../assets/images/product-local/handbag1.png')} style={styles.bagImage} />
+            <View style={styles.textContainer}>
+          <Text style={styles.text}>Hand Bags</Text>
+          <Text style={styles.texts}>64% OFF</Text>
+          
+        </View>
+            </ImageBackground>
+            <ImageBackground>
             <Image source={require('../assets/images/product-local/handbag2.png')} style={styles.bagImage} />
+            <View style={styles.textContainer}>
+            <Text style={styles.text}>Hand Bags</Text>
+            <Text style={styles.texts}>64% OFF</Text>
+        </View>
+            </ImageBackground>
+            <ImageBackground>
             <Image source={require('../assets/images/product-local/handbag3.png')} style={styles.bagImage} />
+            <View style={styles.textContainer}>
+            <Text style={styles.text}>Hand Bags</Text>
+            <Text style={styles.texts}>64% OFF</Text>
+          
+        </View>
+            </ImageBackground>
           </View>
 
 
@@ -270,9 +361,21 @@ const ProductPage = () => {
 
             </View>
             <View style={styles.reactRow}>
+              <View>
               <Image source={require('../assets/images/product-local/reel1.png')} style={styles.bnameImage} />
+              <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+              <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+              </View>
+              <View>
               <Image source={require('../assets/images/product-local/reel2.png')} style={styles.bnameImage} />
+              <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+              <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+              </View>
+              <View>
               <Image source={require('../assets/images/product-local/reel3.png')} style={styles.bnameImage} />
+              <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+              <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/>
+              </View>
             </View>
           </View>
 
@@ -284,7 +387,7 @@ const ProductPage = () => {
               <Text style={styles.bigDealsText}>Hottest</Text>
               <Text style={styles.bigDealsText}>Trends</Text>
               <TouchableOpacity style={styles.shopNowButton}>
-                <Text style={styles.shopNowText}>Shop Now  <FontAwesome name="long-arrow-right" size={20} color="white" /></Text>
+                <Text style={styles.shopNowText}>Shop Now -</Text>
               </TouchableOpacity>
             </View>
           </ImageBackground>
@@ -293,9 +396,21 @@ const ProductPage = () => {
         </View>
 
         <View style={styles.reactRow}>
+          <View>
           <Image source={require('../assets/images/product-local/dress.png')} style={styles.reelimage} />
+          <Text style={styles.firstRowText}>Dresses</Text>
+              <Text style={styles.secondRowText}>Up To 35% OFF</Text>
+              </View>
+              <View>
           <Image source={require('../assets/images/product-local/shorts1.png')} style={styles.reelimage} />
+          <Text style={styles.firstRowText}>Shorts</Text>
+              <Text style={styles.secondRowText}>Up To 35% OFF</Text>
+              </View>
+              <View>
           <Image source={require('../assets/images/product-local/shorts2.png')} style={styles.reelimage} />
+          <Text style={styles.firstRowText}>Shorts</Text>
+              <Text style={styles.secondRowText}>Up To 35% OFF</Text>
+              </View>
         </View>
       </View>
 
@@ -397,10 +512,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 100,
   },
-  newLaunchText: {
+   newLaunchText: {
     textAlign: 'center',
-    color: Colors.white
+    color: Colors.white,
+    fontStyle:'bold',
   },
+ 
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -457,8 +574,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   recentReelsTitle: {
-    color: Colors.white
+    color: Colors.white,
+    marginTop:10,
+    fontWeight:'500',
+    fontSize:16,
 
+  },
+  recentReelsTitles:{
+   color:Colors.white,
+   textAlign:'left',
+   fontWeight:'bold',
   },
   ellipse1Image: {
     position: 'absolute',
@@ -496,6 +621,9 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
   },
+  bigDealsSections:{
+padding:10,
+  },
   rectangleHotImage: {
     width: '100%',
     height: 150,
@@ -531,11 +659,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   shopNowButton: {
-    backgroundColor: '#007bff',
-    // padding: 10,
-    borderRadius: 10,
+    backgroundColor: '#0698fb',
+    padding: 5,
+    borderRadius: 5,
     marginTop: 10,
-    // width: 125,
+    width: 100,
 
 
   },
@@ -578,6 +706,21 @@ const styles = StyleSheet.create({
   skincareText: {
     marginTop: 5,
     textAlign: 'center',
+  },play:
+  {
+   position:'absolute',
+   bottom:80,
+   marginLeft:48,
+  },
+  plays:{
+    position:'absolute',
+    bottom:90,
+    marginLeft:52,
+  },
+  playy:{
+    position:'absolute',
+    bottom:60,
+    marginLeft:82,
   },
   firstRowText: {
     marginLeft:12,
@@ -585,15 +728,68 @@ const styles = StyleSheet.create({
     bottom:15,
     color: Colors.white,
     fontWeight: 'bold',
-    fontSize:10 
+    fontSize:12 
   },
   secondRowText: {
     marginLeft:12,
-    fontSize:8,
+    fontSize:10,
     position:'absolute',
     bottom:0,
     color: Colors.whitesmoke,
   },
+  firstlineText: {
+    marginLeft:12,
+    position:'absolute',
+    bottom:60,
+    color: '#0698fb',
+    fontWeight: '900',
+    fontSize:10,
+    textAlign:'center', 
+    left:15,
+    backgroundColor:Colors.white,
+    borderColor:'#0698fb',
+    borderWidth:1,
+    padding: 5,
+  },
+  secondlineText:{
+    marginLeft:5,
+    position:'absolute',
+    bottom:40,
+    color: Colors.white,
+    fontWeight:'700',
+    fontSize:13,
+    textAlign:'center', 
+    left:20,
+  },
+  thirdlineText:{
+    marginLeft:5,
+    position:'absolute',
+    bottom:25,
+    color: '#0698fb',
+  fontWeight:'700',
+    fontSize:12,
+    textAlign:'center', 
+    left:15,
+  },
+  firstText:{
+    marginLeft:35,
+    position:'absolute',
+    bottom:25,
+    color: Colors.white,
+    fontWeight: '600',
+    fontSize:12 ,
+    textAlign:'Center',
+
+  },secondText: {
+    marginLeft:25,
+    fontSize:10,
+    position:'absolute',
+    bottom:11,
+    color: '#0698fb',
+    fontWeight:'bold',
+
+  },
+  
   discountText: {
     textAlign: 'center',
     color: '#f00',
@@ -617,7 +813,33 @@ const styles = StyleSheet.create({
     height: 100,
 
   },
-
+  textContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+    position: 'absolute',
+    bottom:-5,
+    width: '100%', // Full width of the image
+    alignItems: 'left',
+    padding: 0,
+    width: '100%', // Full width of the image
+    alignItems: 'center',
+    marginBottom:1,
+  },
+  text: {
+    color: 'white',
+    fontSize: 12,
+    textAlign: 'left',
+    marginRight:45,
+    fontWeight:'500',
+  },
+texts:{
+  color: 'white',
+  fontSize: 10,
+  textAlign: 'left',
+  marginRight:60,
+  color:'#0698fb',
+  fontWeight:'600',
+  
+},
 });
 
 
