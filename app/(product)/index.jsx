@@ -6,11 +6,11 @@ import { Colors } from '../components/styles/Colours';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import Entypo from '@expo/vector-icons/Entypo';
+import CategorySection from '../components/CategorySection';
+import CategoryItem from '../components/CategoryItem';
 
 
-
-
-const SearchPage = () => {
+const ProductPage = () => {
 
   const navigation = useNavigation();
 
@@ -38,7 +38,6 @@ const SearchPage = () => {
         <View style={styles.flexRow}>
           {images.map((image, index) => (
             <View key={index} style={[imageStyle, { marginRight: 10 }]}>
-
               <Image source={image.uri} style={styles.image} />
               <View style={GStyle.imageFooter}>
                 <Image source={image.profileUri} style={GStyle.profileImage} />
@@ -55,6 +54,20 @@ const SearchPage = () => {
   );
 
 
+  const categories = [
+    { image: require('../assets/images/product-local/c1.png'), title: 'All Category' },
+    { image: require('../assets/images/product-local/c2.png'), title: 'Fashion' },
+    { image: require('../assets/images/product-local/c3.png'), title: 'Cosmetics' },
+    { image: require('../assets/images/product-local/c4.png'), title: 'Stationary' },
+  ];
+
+  const secondCategory = [
+    { image: require('../assets/images/product-local/Group 21.png'), title: 'Footwear' },
+    { image: require('../assets/images/product-local/Group 22.png'), title: 'Electronics' },
+    { image: require('../assets/images/product-local/Group 23.png'), title: 'Jewelry' },
+  
+  
+  ];
 
   return (
     <ScrollView style={[GStyle.container, { backgroundColor: Colors.dark.background }]}>
@@ -96,44 +109,20 @@ const SearchPage = () => {
 
         <View style={styles.categorySection}>
           <Text style={styles.categoryTitle}>Category</Text>
+          <CategorySection categories={categories} />
+          
           <View style={styles.categoryRow}>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/c1.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>All Category</Text>
-            </View>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/c2.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>Fashion</Text>
-            </View>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/c3.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>Cosmetics</Text>
-            </View>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/c4.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>Stationary</Text>
-            </View>
-          </View>
-          <View style={styles.categoryRow}>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/Group 21.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>Item 1</Text>
-            </View>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/Group 22.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>Item 2</Text>
-            </View>
-            <View style={styles.categoryItem}>
-              <Image source={require('../assets/images/product-local/Group 23.png')} style={styles.categoryImage} />
-              <Text style={styles.categoryText}>Item 3</Text>
-            </View>
-            <View style={styles.categoryItem}>
-              <View style={styles.newLaunch}>
-                <Text style={styles.newLaunchText}>NEW</Text>
-                <Text style={styles.newLaunchText}>LAUNCH</Text>
-              </View>
-            </View>
-          </View>
+      {secondCategory.map((category, index) => (
+        <CategoryItem
+          key={index}
+          imageSource={category.image}
+          text={category.title}
+        />
+      ))}
+      <CategoryItem isNewLaunch />
+    </View>
+
+       
         </View>
 
         <View style={styles.bannerSection}>
@@ -143,8 +132,10 @@ const SearchPage = () => {
               <View key={index} style={styles.sliderDot} />
             ))}
           </View>
-          <Image source={require('../assets/images/product-local/sale2.png')} style={styles.bannerImage} />
+          
         </View>
+
+        <Image source={require('../assets/images/product-local/sale2.png')} style={styles.bannerImage} />
 
 
         <View style={styles.recentReelsSection}>
@@ -176,10 +167,30 @@ const SearchPage = () => {
           <Image source={require('../assets/images/product-local/girl.png')} style={styles.girlImage} />
 
           <View style={styles.reactRow}>
+          <View style={styles.skincareSection}>
+            <View style={styles.skincareItem}>
+              <Image source={require('../assets/images/product-local/rect1.png')} style={styles.reelimage} />
+              <Text style={styles.firstRowText}>Effective Skincare</Text>
+              <Text style={styles.secondRowText}>Up To 35% OFF</Text>
+            </View>
+            <View style={styles.skincareItem}>
+              <Image source={require('../assets/images/product-local/rect2.png')} style={styles.reelimage} />
+              <Text style={styles.firstRowText}>Sensitive Skincare</Text>
+              <Text style={styles.secondRowText}>Up To 35% OFF</Text>
+            </View>
+            <View style={styles.skincareItem}>
+              <Image source={require('../assets/images/product-local/rect3.png')} style={styles.reelimage} />
+              <Text style={styles.firstRowText}>Effective Skincare</Text>
+              <Text style={styles.secondRowText}>Up To 35% OFF</Text>
+            </View>
+          </View>
+        </View>
+
+          {/* <View style={styles.reactRow}>
             <Image source={require('../assets/images/product-local/rect1.png')} style={styles.reelimage} />
             <Image source={require('../assets/images/product-local/rect2.png')} style={styles.reelimage} />
             <Image source={require('../assets/images/product-local/rect3.png')} style={styles.reelimage} />
-          </View>
+          </View> */}
 
           <View style={styles.brandsSection}>
             <Text style={styles.brandsTitle}>Brands Of The weeks</Text>
@@ -552,20 +563,36 @@ const styles = StyleSheet.create({
 
   },
   skincareSection: {
-    padding: 10,
+    // padding: 10,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+   
+    // justifyContent: 'space-between',
   },
   skincareItem: {
-    width: '30%',
+    // width: '35%',
   },
   skincareImage: {
-    width: '100%',
-    height: 100,
+    // width: '100%',
+    // height: 100,
   },
   skincareText: {
     marginTop: 5,
     textAlign: 'center',
+  },
+  firstRowText: {
+    marginLeft:12,
+    position:'absolute',
+    bottom:15,
+    color: Colors.white,
+    fontWeight: 'bold',
+    fontSize:10 
+  },
+  secondRowText: {
+    marginLeft:12,
+    fontSize:8,
+    position:'absolute',
+    bottom:0,
+    color: Colors.whitesmoke,
   },
   discountText: {
     textAlign: 'center',
@@ -595,4 +622,4 @@ const styles = StyleSheet.create({
 
 
 
-export default SearchPage;
+export default ProductPage;

@@ -110,8 +110,8 @@ imageFooter: {
 
 // // Profile image style
 profileImage: {
-  width: 30,
-  height: 30,
+  // width: 30,
+  // height: 50,
   borderRadius: 15,
   // marginRight: 10,
   marginLeft:8 

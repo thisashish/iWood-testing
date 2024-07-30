@@ -10,7 +10,7 @@
 
   // Colours.js
 export const Colors = {
-    primary: '#121212',
+    primary: '#121212', 
     whitesmoke :'#f5f5f5',
     secondary: '#1F1F1F',
     accent: '#BB86FC',

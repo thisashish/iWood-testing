@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from 'expo-router';
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
 import Entypo from '@expo/vector-icons/Entypo';
+import FilterButton from '../components/FilterButton'; 
+// import { useNavigation } from '@react-navigation/native';
 
 
 const LifestylePage = () => {
@@ -51,7 +53,7 @@ const LifestylePage = () => {
     }
   };
 
-  const renderSection = (title, images, imageStyle, initialImageCount, nameStyle = {}, followersStyle = {},imageTextStyle) => {
+  const renderSection = (title, images, imageStyle, initialImageCount, nameStyle = {}, followersStyle = {}, imageTextStyle) => {
     const showAll = selectedButton === title || seeMore[title];
     const imagesToShow = showAll ? images : images.slice(0, initialImageCount);
 
@@ -61,9 +63,9 @@ const LifestylePage = () => {
           <Text style={GStyle.sectionTitle}>{title}</Text>
           <TouchableOpacity onPress={() => setSeeMore(prev => ({ ...prev, [title]: !prev[title] }))}>
             <Text style={GStyle.sectionSeeMore}>{seeMore[title] ? 'See Less' : 'See More'}
-            <Entypo name="chevron-small-down"  />
+              <Entypo name="chevron-small-down" />
             </Text>
-            
+
           </TouchableOpacity>
         </View>
         <View style={GStyle.imageContainer}>
@@ -76,7 +78,7 @@ const LifestylePage = () => {
               >
                 <Image source={image.uri} style={styles.image} />
                 <View style={GStyle.imageFooter}>
-                
+
                   <Image source={image.profileUri} style={GStyle.profileImage} />
                   <View style={imageTextStyle}>
                     <Text style={[GStyle.profileName, nameStyle]}>{image.name}</Text>
@@ -235,23 +237,28 @@ const LifestylePage = () => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.buttonContainer}>
-          {['Beauty', 'Gaming', 'Parenting', 'Animals'].map((button) => (
-            <TouchableOpacity
+        <ScrollView horizontal contentContainerStyle={styles.buttonContainer} showsHorizontalScrollIndicator={false}>
+          <FilterButton
+            key="Sort"
+            selected={selectedButton === "Sort"}
+            onPress={() => setSelectedButton("Sort")}
+          >
+            Sort
+          </FilterButton>
+          {Object.keys(sections).map((button) => (
+            <FilterButton
               key={button}
-              style={[
-                styles.filterButton,
-                selectedButton === button ? styles.selectedButton : styles.unselectedButton
-              ]}
+              selected={selectedButton === button}
               onPress={() => {
                 setSelectedButton(button);
                 setSeeMore(prev => ({ ...prev, [button]: true }));
               }}
             >
-              <Text style={selectedButton === button ? styles.selectedButtonText : styles.unselectedButtonText}>{button}</Text>
-            </TouchableOpacity>
+              {button}
+            </FilterButton>
           ))}
-        </View>
+        </ScrollView>
+
 
         {selectedButton ? sections[selectedButton] : Object.values(sections)}
       </View>
@@ -341,16 +348,16 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     marginTop: 0
   },
-  animalNameStyle:{
-// backgroundColor:Colors.primary
+  animalNameStyle: {
+    // backgroundColor:Colors.primary
   },
 
-  animalFollowersStyle:{
+  animalFollowersStyle: {
 
   },
 
-  animalImageTextStyle:{
-backgroundColor:'red',
+  animalImageTextStyle: {
+    backgroundColor: 'red',
 
   }
 });

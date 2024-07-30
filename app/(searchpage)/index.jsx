@@ -1,19 +1,19 @@
+
+// app/(searchpage)/index.jsx
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { GStyle } from '../components/styles/Global';
 import { Colors } from '../components/styles/Colours';
-// import { useNavigation } from '@react-navigation/native';
 import Group20Image from '../assets/images/Group 20.png';
 import Group18Image from '../assets/images/Group 18.png';
 import RectangleImage from '../assets/images/Rectangle.png';
 import Entypo from '@expo/vector-icons/Entypo';
 import { useNavigation } from 'expo-router';
-
-
+import CustomButton from '../components/CustomButton';
+import FilterButton from '../components/FilterButton';
 
 const SearchPage = () => {
-
   const navigation = useNavigation();
 
   const [selectedButton, setSelectedButton] = useState('Influencer');
@@ -25,15 +25,14 @@ const SearchPage = () => {
     setShowSortOptions(false);
   };
 
-
-
   const renderSection = (title, seeMore, images, imageStyle) => (
     <View style={GStyle.sectionContainer}>
       <View style={GStyle.sectionHeader}>
         <Text style={GStyle.sectionTitle}>{title}</Text>
         <TouchableOpacity>
-          <Text style={GStyle.sectionSeeMore}>{seeMore}
-          <Entypo name="chevron-small-down"  />
+          <Text style={GStyle.sectionSeeMore}>
+            {seeMore}
+            <Entypo name="chevron-small-down" />
           </Text>
         </TouchableOpacity>
       </View>
@@ -41,7 +40,6 @@ const SearchPage = () => {
         <View style={styles.flexRow}>
           {images.map((image, index) => (
             <View key={index} style={[imageStyle, { marginRight: 10 }]}>
-
               <Image source={image.uri} style={styles.image} />
               <View style={GStyle.imageFooter}>
                 <Image source={image.profileUri} style={GStyle.profileImage} />
@@ -57,8 +55,6 @@ const SearchPage = () => {
     </View>
   );
 
-
-
   return (
     <ScrollView style={[GStyle.container, { backgroundColor: Colors.dark.background }]}>
       <View style={[GStyle.container, GStyle.paddingMd]}>
@@ -67,67 +63,50 @@ const SearchPage = () => {
           <TextInput
             placeholder="Search Influencer and agency"
             style={styles.searchInput}
-            placeholderTextColor='#d3d3d3'
+            placeholderTextColor="#d3d3d3"
           />
           <FontAwesome name="microphone" size={24} color={Colors.grey} style={styles.micIcon} />
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={[
-              styles.button,
-              selectedButton === 'Influencer' ? styles.selectedButton : styles.unselectedButton
-            ]}
+          <CustomButton
+            title="Influencer"
+            selected={selectedButton === 'Influencer'}
             onPress={() => setSelectedButton('Influencer')}
-          >
-            <Text style={selectedButton === 'Influencer' ? styles.selectedButtonText : styles.unselectedButtonText}>
-              Influencer
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.button,
-              selectedButton === 'Production House' ? styles.selectedButton : styles.unselectedButton
-            ]}
+
+
+          />
+          <CustomButton
+            title="Production House"
+            selected={selectedButton === 'Production House'}
             onPress={() => setSelectedButton('Production House')}
-          >
-            <Text style={selectedButton === 'Production House' ? styles.selectedButtonText : styles.unselectedButtonText}>
-              Production House
-            </Text>
-          </TouchableOpacity>
+
+          />
         </View>
+        <View style={styles.filterButtonScrollViewContainer}>
+  <ScrollView horizontal contentContainerStyle={styles.filterButtonContainer} showsHorizontalScrollIndicator={false}>
+    <FilterButton onPress={() => setShowSortOptions(!showSortOptions)}>
+      <FontAwesome name="sort" size={16} color="white" /> Sort <Entypo name="chevron-small-down" />
+    </FilterButton>
 
-        <View style={styles.filterButtonContainer}>
-          <TouchableOpacity
-            style={styles.filterButton}
-            onPress={() => setShowSortOptions(!showSortOptions)}
-          >
-            <FontAwesome name="sort" size={16} color="white" />
-            <Text style={styles.filterButtonText}>Sort   <Entypo name="chevron-small-down"  /></Text>
-          </TouchableOpacity>
+    <FilterButton selected={selectedButton === 'Lifestyle'} onPress={() => navigation.navigate('LifestylePage')}>
+      Lifestyle
+    </FilterButton>
 
-          <TouchableOpacity
-            style={[
-              styles.button,
-              selectedButton === 'Lifestyle' ? styles.selectedButton : styles.unselectedButton
-            ]}
-            onPress={() => navigation.navigate('LifestylePage')}
-          >
-            <Text style={selectedButton === 'Lifestyle' ? styles.selectedButtonText : styles.unselectedButtonText}>
-              Lifestyle
-            </Text>
-          </TouchableOpacity>
+    <FilterButton onPress={() => setSelectedButton('Fashion')}>
+      Fashion
+    </FilterButton>
 
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterButtonText}>Fashion</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterButtonText}>Food</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterButtonText}>Sports</Text>
-          </TouchableOpacity>
-        </View>
+    <FilterButton onPress={() => setSelectedButton('Food')}>
+      Food
+    </FilterButton>
+
+    <FilterButton onPress={() => setSelectedButton('Sports')}>
+      Sports
+    </FilterButton>
+  </ScrollView>
+</View>
+
 
         {showSortOptions && (
           <View style={styles.sortOptionsContainer}>
@@ -170,12 +149,12 @@ const SearchPage = () => {
           'Influencer Work With Brand',
           'See More',
           [
-            { uri: require('../assets/images/Brand1.png') , name: 'Brand Name' },
+            { uri: require('../assets/images/Brand1.png'), name: 'Brand Name' },
 
-            { uri: require('../assets/images/Brand2.png'),name: 'Brand Name' },
-            { uri: require('../assets/images/Brand3.png') ,name: 'Brand Name'},
+            { uri: require('../assets/images/Brand2.png'), name: 'Brand Name' },
+            { uri: require('../assets/images/Brand3.png'), name: 'Brand Name' },
           ],
-          
+
           GStyle.ge,
           (image) => (
             <View style={{ flex: 1 }}>
@@ -186,7 +165,7 @@ const SearchPage = () => {
               </View>
             </View>
           )
-        
+
         )}
 
 
@@ -210,12 +189,12 @@ const SearchPage = () => {
               textRight: '14k',
             },
           ],
-          styles.rowImage, 
+          styles.rowImage,
           { marginBottom: 0 },
-          true 
+          true
         )}
 
-        
+
         <View style={styles.travelInfluencerSection}>
           <View style={styles.header}>
             <Text style={styles.travelInfluencerText}>Travel Influencer</Text>
@@ -566,7 +545,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginHorizontal: 10,
     borderWidth: 1,
-    // borderColor: Colors.grey,
     borderRadius: 8,
   },
   searchInput: {
@@ -591,27 +569,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 10,
   },
-  button: {
-    flex: 1,
-    paddingVertical: 10,
-    marginHorizontal: 7,
-    borderRadius: 5,
-    alignItems: 'center',
+  influencerButton: {
+    backgroundColor: '#1E90FF', // Customize as needed
+    borderColor: '#1E90FF', // Customize as needed
   },
-  selectedButton: {
-    backgroundColor: Colors.blue,
-  },
-  unselectedButton: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: Colors.blue,
-  },
-  selectedButtonText: {
-    color: Colors.white,
-  },
-  unselectedButtonText: {
-    color: Colors.white,
-
+  productionHouseButton: {
+    backgroundColor: '#FF6347', // Customize as needed
+    borderColor: '#FF6347', // Customize as needed
   },
   overlay: {
     position: 'absolute',
@@ -662,24 +626,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: Colors.grey,
     marginBottom: 10,
+    overflow: 'hidden', // Ensure image respects border radius
   },
-  sportsSection: {
-    marginVertical: 10,
-  },
-  sectionTitle: {
-    color: 'white', // Set white text color
-    fontSize: 16,
-    fontWeight: 'bold',
-    paddingHorizontal: 10,
+  overlayContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust for semi-transparent overlay
     paddingVertical: 5,
-    backgroundColor: Colors.dark.background,
+    paddingHorizontal: 10,
+    borderBottomLeftRadius: 10, // Match the container's border radius
+    borderBottomRightRadius: 10, // Match the container's border radius
   },
-  sportsImage: {
-    width: '30%', // Adjust width as needed
-    height: 150,
-    borderRadius: 10,
-    backgroundColor: Colors.grey,
-    marginBottom: 10,
+  overlayText: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   filterButtonContainer: {
     flexDirection: 'row',
@@ -687,39 +650,18 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   filterButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 5,
-    borderColor: Colors.grey,
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginRight: 2,
-    marginLeft: 2
+    // Add additional styles if needed
   },
   filterButtonText: {
-    color: Colors.white,
+    color: 'white',
     marginLeft: 5,
-    fontSize: 10
   },
-  sortOptionsContainer: {
-    backgroundColor: Colors.dark.background,
-    borderColor: Colors.grey,
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginVertical: 10,
-    position: 'absolute',
-    top: 200,
-    zIndex: 999,
-    marginLeft: 10
-  },
-  sortOption: {
+
+  customButton: {
+    marginHorizontal: 5,
+    borderRadius: 20,
     paddingVertical: 10,
-  },
-  sortOptionText: {
-    color: Colors.white,
-    fontSize: 14,
+    paddingHorizontal: 20,
   },
 
   brandNameContainer: {
@@ -729,15 +671,18 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     alignItems: 'center',
     padding: 5,
-    
+
   },
   brandNameText: {
     color: Colors.white,
     fontWeight: 'bold',
-    backgroundColor:'black',
+    backgroundColor: 'black',
   },
-  
-
+  filterButtonScrollViewContainer: {
+    flexDirection: 'row',
+    marginVertical: 10,
+  },
 });
 
 export default SearchPage;
+
