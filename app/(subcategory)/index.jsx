@@ -15,12 +15,9 @@ import { Colors } from "../components/styles/Colours";
 import { useNavigation } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
 import CustomProfile from "../components/CustomProfile";
-<<<<<<< HEAD
-import { ImageBackground } from "react-native-web";
-=======
 import CircleItem from '../components/CircleItem';
 
->>>>>>> 680e1a39cc640df19bffd3777b9404349b32fdc8
+
 
 const SubCatgory = () => {
   const navigation = useNavigation();
