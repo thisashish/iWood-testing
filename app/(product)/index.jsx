@@ -20,7 +20,6 @@ const ProductPage = () => {
   const navigation = useNavigation();
 
   const [selectedButton, setSelectedButton] = useState("Influencer");
-  
 
   const categories = [
     {
@@ -994,7 +993,6 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
     position: "absolute",
     bottom: -5,
-    width: "100%", // Full width of the image
     alignItems: "left",
     padding: 0,
     width: "100%", // Full width of the image
