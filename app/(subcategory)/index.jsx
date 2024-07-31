@@ -15,6 +15,8 @@ import { Colors } from "../components/styles/Colours";
 import { useNavigation } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
 import CustomProfile from "../components/CustomProfile";
+import CircleItem from '../components/CircleItem';
+
 
 const SubCatgory = () => {
   const navigation = useNavigation();
@@ -453,7 +455,7 @@ const SubCatgory = () => {
 
       <View style={styles.brandsSection}>
         <Text style={styles.brandsTitle}>Stores you can’t miss</Text>
-        <View style={styles.categoryRow}>
+        {/* <View style={styles.categoryRow}>
           <View style={styles.categoryItem}>
             <View style={styles.imageContainer}>
               <Image
@@ -486,6 +488,12 @@ const SubCatgory = () => {
               />
             </View>
           </View>
+        </View> */}
+          <View style={styles.categoryRow}>
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
         </View>
       </View>
 
@@ -506,6 +514,7 @@ const SubCatgory = () => {
                 style={styles.circle2}
               />
             </View>
+
           </View>
           <View style={styles.categoryItem}>
             <View style={styles.imageContainer}>
@@ -875,12 +884,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     // paddingRight:5,
   },
-  categoryItem: {
-    flex: 1,
-    alignItems: "center",
-    color: "red",
-    marginRight: 10,
-  },
+  // categoryItem: {
+  //   flex: 1,
+  //   alignItems: "center",
+  //   color: "red",
+  //   marginRight: 10,
+  // },
   reelimage: {
     marginHorizontal: 5, // Add horizontal margin to each image
   },

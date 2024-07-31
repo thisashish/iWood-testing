@@ -9,10 +9,10 @@ import Group20Image from '../assets/images/Group 20.png';
 import Group18Image from '../assets/images/Group 18.png';
 import RectangleImage from '../assets/images/Rectangle.png';
 import Entypo from '@expo/vector-icons/Entypo';
-
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "expo-router";
 import CustomButton from '../components/CustomButton';
 import FilterButton from '../components/FilterButton';
+import CustomSearchBar from '../components/CustomSearchBar';
 
 
 const SearchPage = () => {
@@ -60,15 +60,7 @@ const SearchPage = () => {
   return (
     <ScrollView style={[GStyle.container, { backgroundColor: Colors.dark.background }]}>
       <View style={[GStyle.container, GStyle.paddingMd]}>
-        <View style={styles.searchBar}>
-          <FontAwesome name="search" size={24} color={Colors.grey} />
-          <TextInput
-            placeholder="Search Influencer and agency"
-            style={styles.searchInput}
-            placeholderTextColor="#d3d3d3"
-          />
-          <FontAwesome name="microphone" size={24} color={Colors.grey} style={styles.micIcon} />
-        </View>
+      <CustomSearchBar placeholder="Search Influencer and agency" />
 
         <View style={styles.buttonContainer}>
           <CustomButton
@@ -537,26 +529,26 @@ const SearchPage = () => {
 };
 
 const styles = StyleSheet.create({
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#36454F',
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-    marginTop: 20,
-    marginBottom: 10,
-    marginHorizontal: 10,
-    borderWidth: 1,
-    borderRadius: 8,
-  },
-  searchInput: {
-    flex: 1,
-    marginLeft: 10,
-    color: Colors.white,
-  },
-  micIcon: {
-    marginLeft: 10,
-  },
+  // searchBar: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   backgroundColor: '#36454F',
+  //   paddingHorizontal: 10,
+  //   paddingVertical: 8,
+  //   marginTop: 45,
+  //   marginBottom: 10,
+  //   marginHorizontal: 10,
+  //   borderWidth: 1,
+  //   borderRadius: 8,
+  // },
+  // searchInput: {
+  //   flex: 1,
+  //   marginLeft: 10,
+  //   color: Colors.white,
+  // },
+  // micIcon: {
+  //   marginLeft: 10,
+  // },
   image: {
     flex: 1,
     resizeMode: 'cover',
