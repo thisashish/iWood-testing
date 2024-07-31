@@ -16,7 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
 import CustomProfile from "../components/CustomProfile";
 import CircleItem from '../components/CircleItem';
-
+import CustomSearchBar from '../components/CustomSearchBar';
 
 
 const SubCatgory = () => {
@@ -64,20 +64,8 @@ const SubCatgory = () => {
     >
        <CustomProfile onPress={() => navigation.goBack()} title="All Over India" />
       <View style={[GStyle.container, GStyle.paddingMd]}>
-        <View style={styles.searchBar}>
-          <FontAwesome name="search" size={24} color={Colors.grey} />
-          <TextInput
-            placeholder="Search Product,Store,brands"
-            style={styles.searchInput}
-            placeholderTextColor="#d3d3d3"
-          />
-          <FontAwesome
-            name="microphone"
-            size={24}
-            color={Colors.grey}
-            style={styles.micIcon}
-          />
-        </View>
+       
+<CustomSearchBar placeholder="Search Product, Store, brands" />
 
         <View style={styles.categorySection}>
           <Text style={styles.categoryTitle}>
@@ -486,40 +474,7 @@ const SubCatgory = () => {
 
       <View style={styles.brandsSection}>
         <Text style={styles.brandsTitle}>Stores you can’t miss</Text>
-        {/* <View style={styles.categoryRow}>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
-        </View> */}
+      
           <View style={styles.categoryRow}>
           <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
           <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
@@ -530,39 +485,10 @@ const SubCatgory = () => {
 
       <View style={styles.brandsSection}>
         <View style={styles.categoryRow}>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.imageContainer}>
-              <Image
-                source={require("../assets/images/photoshoot/cir.png")}
-                style={styles.circle2}
-              />
-            </View>
-          </View>
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
+          <CircleItem discount="20% Off" brand="BRAND" name="NAME" />
         </View>
       </View>
 
@@ -893,15 +819,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginBottom: 30,
   },
-  searchInput: {
-    flex: 1,
-    marginLeft: 10,
-    color: Colors.white,
-  },
-  micIcon: {
-    marginLeft: 10,
-  },
-
+  
   image: {
     flex: 1,
     resizeMode: "cover",
@@ -935,12 +853,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     // paddingRight:5,
   },
-  // categoryItem: {
-  //   flex: 1,
-  //   alignItems: "center",
-  //   color: "red",
-  //   marginRight: 10,
-  // },
+  categoryItem: {
+    flex: 1,
+    alignItems: "center",
+    color: "red",
+    marginRight: 10,
+  },
   reelimage: {
     marginHorizontal: 5, // Add horizontal margin to each image
   },

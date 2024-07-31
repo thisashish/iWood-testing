@@ -25,19 +25,6 @@ categoryItem: {
     marginRight: 10,
   },
 
-//   categoryItem: {
-//     flex: 1,
-//     alignItems: "center",
-//     color: "red",
-//     marginRight: 10,
-//   },
-//   imageContainer: {
-//     position: 'relative',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-
-
   imageContainer: {
     position: "relative",
     width: 85, 
@@ -58,35 +45,29 @@ categoryItem: {
     resizeMode: "contain",
   },
 
-
-//   circle2: {
-//     width: 80,
-//     height: 80,
-//     borderRadius: 40,
-//   },
   textContainer: {
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft:25,
-    marginTop:20 
+    marginLeft:20,
+    marginTop:15 
   },
   discountText: {
-    fontSize:5,
+    fontSize:7,
     color: Colors.white,
-    backgroundColor: Colors.blue,
+    backgroundColor:'#0698FB',
     padding: 2,
     borderRadius: 5,
     marginBottom: 5,
   },
   brandText: {
-    fontSize:8,
+    fontSize:9,
     color: Colors.white,
     marginBottom: 2,
     fontWeight:'bold'
   },
   nameText: {
-    fontSize:8,
+    fontSize:9,
     color: Colors.white,
     fontWeight:'bold'
   },
