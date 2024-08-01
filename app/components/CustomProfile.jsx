@@ -24,8 +24,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 30,
+        paddingBottom: 30,
+        paddingTop:30,
+        paddingLeft:15,
         backgroundColor: Colors.dark.background,
+        
     },
     icon: {
         width: 24,

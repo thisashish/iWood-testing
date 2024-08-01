@@ -6,6 +6,7 @@ import { Colors } from '../components/styles/Colours';
 import { Ionicons, MaterialCommunityIcons,AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
+import CustomProfile from "../components/CustomProfile";
 
 
 const ProfilePage = () => {
@@ -19,17 +20,8 @@ const ProfilePage = () => {
 
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.topSection}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={24} color={Colors.white} style={styles.icon} />
-                </TouchableOpacity>
-                <Text style={styles.headerText}>Profile</Text>
-                <View style={styles.topRightIcons}>
-                    <Ionicons name="notifications" size={24} color={Colors.white} style={styles.icon} />
-                    <Ionicons name="person-circle" size={24} color={Colors.white} style={styles.profileSmall} />
-                </View>
-            </View>
-
+            <CustomProfile onPress={() => navigation.goBack()} title="Profile" />
+          
             <View style={styles.bannerSection}>
                 <Image source={require('../assets/images/profile/profile-banner.png')} style={styles.bannerImage} />
                 <View style={styles.profileContainer}>
@@ -200,32 +192,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Colors.dark.background,
     },
-    topSection: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 10,
-        backgroundColor: Colors.dark.background,
-    },
-    icon: {
-        width: 24,
-        height: 24,
-    },
-    headerText: {
-        fontSize: 18,
-        color: Colors.white,
-        fontWeight: 'bold',
-    },
-    topRightIcons: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    profileSmall: {
-        width: 30,
-        height: 30,
-        borderRadius: 15,
-        marginLeft: 10,
-    },
+  
     bannerSection: {
         position: 'relative',
     },
