@@ -15,6 +15,7 @@ import { Colors } from "../components/styles/Colours";
 import { useNavigation } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
 import CustomProfile from "../components/CustomProfile";
+import { ImageBackground } from "react-native-web";
 
 const SubCatgory = () => {
   const navigation = useNavigation();
@@ -404,50 +405,80 @@ const SubCatgory = () => {
 
       <View style={styles.brandsSection}>
         <View style={styles.brandsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress1.png")}
             style={styles.reelimage}
+           
           />
+             <Text style={styles.firstRowText}>Western Dresses</Text>
+             <Text style={styles.secondRowText}>10Km,  Nagpur</Text>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress2.png")}
             style={styles.reelimage}
-          />
+
+          /><Text style={styles.firstRowText}>Shorts Dresses</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+          </View>
         </View>
       </View>
       <View style={styles.brandsSection}>
         <View style={styles.brandsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress3.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Shorts</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress4.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Shorts</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+          </View>
         </View>
       </View>
       <View style={styles.brandsSection}>
         <View style={styles.brandsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress5.png")}
             style={styles.reelimage}
-          />
+
+          /><Text style={styles.firstRowText}>Western Dresses</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress6.png")}
             style={styles.reelimage}
-          />
+
+          /><Text style={styles.firstRowText}>Shorts Dresses</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+          </View>
         </View>
       </View>
       <View style={styles.brandsSection}>
         <View style={styles.brandsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress7.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Shorts</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/dress8.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Shorts</Text>
+             <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+          </View>
         </View>
       </View>
 
@@ -536,18 +567,31 @@ const SubCatgory = () => {
 
       <View style={styles.recentReelsSection}>
         <View style={styles.reelsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/deal1.png")}
             style={styles.reelImage}
-          />
+            
+          /><Text style={styles.firstlineText}>Brands Name</Text>
+          <Text style={styles.secondlineText}>Under Rs.499</Text>
+          <Text style={styles.thirdlineText}>+Extra 20% OFF</Text>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/deal2.png")}
             style={styles.reelImage}
-          />
+          /><Text style={styles.firstlineText}>Brands Name</Text>
+          <Text style={styles.secondlineText}>Under Rs.499</Text>
+          <Text style={styles.thirdlineText}>+Extra 20% OFF</Text>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/deal3.png")}
             style={styles.reelImage}
-          />
+          /><Text style={styles.firstlineText}>Brands Name</Text>
+          <Text style={styles.secondlineText}>Under Rs.499</Text>
+          <Text style={styles.thirdlineText}>+Extra 20% OFF</Text>
+          </View>
         </View>
       </View>
 
@@ -560,18 +604,25 @@ const SubCatgory = () => {
           </Text>
         </View>
         <View style={styles.reactRow}>
+          
+          <View>
           <Image
             source={require("../assets/images/photoshoot/like1.png")}
             style={styles.bnameImage}
-          />
+          /> 
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/like2.png")}
             style={styles.bnameImage}
-          />
+          /> 
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/like3.png")}
             style={styles.bnameImage}
-          />
+          /> 
+          </View>
         </View>
       </View>
 
@@ -1175,7 +1226,83 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 15,
     color: Colors.whitesmoke,
+  },firstRowText: {
+    marginLeft:12,
+    position:'absolute',
+    bottom:15,
+    color: Colors.white,
+    fontWeight: 'bold',
+    fontSize:12 
   },
+  secondRowText: {
+    marginLeft:12,
+    fontSize:10,
+    position:'absolute',
+    bottom:0,
+    color: Colors.whitesmoke,
+  },firstlineText: {
+    marginLeft:12,
+    position:'absolute',
+    bottom:60,
+    color: '#0698fb',
+    fontWeight: '900',
+    fontSize:10,
+    textAlign:'center', 
+    left:15,
+    backgroundColor:Colors.white,
+    borderColor:'#0698fb',
+    borderWidth:1,
+    padding: 5,
+  },
+  secondlineText:{
+    marginLeft:5,
+    position:'absolute',
+    bottom:40,
+    color: Colors.white,
+    fontWeight:'700',
+    fontSize:13,
+    textAlign:'center', 
+    left:20,
+  },
+  thirdlineText:{
+    marginLeft:5,
+    position:'absolute',
+    bottom:25,
+    color: '#0698fb',
+  fontWeight:'700',
+    fontSize:12,
+    textAlign:'center', 
+    left:15,
+  },textContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+    position: 'absolute',
+    bottom:-5,
+    width: '100%', // Full width of the image
+    alignItems: 'left',
+    padding: 0,
+    width: '100%', // Full width of the image
+    alignItems: 'center',
+    marginBottom:1,
+    borderWidth:1,
+    borderColor:Colors.secondary,
+    
+  },
+  text: {
+    color: 'white',
+    fontSize: 12,
+    textAlign: 'left',
+    marginRight:45,
+    fontWeight:'500',
+  },
+texts:{
+  color: 'white',
+  fontSize: 10,
+  textAlign: 'left',
+  marginRight:60,
+  color:'#0698fb',
+  fontWeight:'600',
+  
+},
 });
 
 export default SubCatgory;

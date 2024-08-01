@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selectedButton: {
-    backgroundColor: Colors.blue,
+    backgroundColor: Colors.white,
   },
   unselectedButton: {
     backgroundColor: 'transparent',
