@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
 import CustomProfile from "../components/CustomProfile";
 import CircleItem from '../components/CircleItem';
+import { ImageBackground } from "react-native-web";
 
 
 
@@ -412,10 +413,15 @@ const SubCatgory = () => {
             source={require("../assets/images/photoshoot/dress1.png")}
             style={styles.reelimage}
            
-          />
+          /> 
              <Text style={styles.firstRowText}>Western Dresses</Text>
+             
              <Text style={styles.secondRowText}>10Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+            
           </View>
+         
           <View>
           <Image
             source={require("../assets/images/photoshoot/dress2.png")}
@@ -423,6 +429,8 @@ const SubCatgory = () => {
 
           /><Text style={styles.firstRowText}>Shorts Dresses</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
         </View>
       </View>
@@ -434,6 +442,8 @@ const SubCatgory = () => {
             style={styles.reelimage}
           /><Text style={styles.firstRowText}>Shorts</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
           <View>
           <Image
@@ -441,6 +451,8 @@ const SubCatgory = () => {
             style={styles.reelimage}
           /><Text style={styles.firstRowText}>Shorts</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
         </View>
       </View>
@@ -453,6 +465,8 @@ const SubCatgory = () => {
 
           /><Text style={styles.firstRowText}>Western Dresses</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
           <View>
           <Image
@@ -461,6 +475,8 @@ const SubCatgory = () => {
 
           /><Text style={styles.firstRowText}>Shorts Dresses</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
         </View>
       </View>
@@ -472,6 +488,8 @@ const SubCatgory = () => {
             style={styles.reelimage}
           /><Text style={styles.firstRowText}>Shorts</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
 
           </View>
           <View>
@@ -480,6 +498,8 @@ const SubCatgory = () => {
             style={styles.reelimage}
           /><Text style={styles.firstRowText}>Shorts</Text>
              <Text style={styles.secondRowText}>16.1Km,  Nagpur</Text>
+             <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
         </View>
       </View>
@@ -617,21 +637,31 @@ const SubCatgory = () => {
           <View>
           <Image
             source={require("../assets/images/photoshoot/like1.png")}
+
             style={styles.bnameImage}
-          /> 
+          /><Text style={styles.firstlineTexts}>Brands Name</Text>
+           <AntDesign name="caretright" size={20} color="yellow"   style={styles.plays} />
+           <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/>
           </View>
+          
           <View>
           <Image
             source={require("../assets/images/photoshoot/like2.png")}
+
             style={styles.bnameImage}
-          /> 
+          /><Text style={styles.firstlineTexts}>Brands Name</Text>
+          
           </View>
+          
+          
           <View>
           <Image
             source={require("../assets/images/photoshoot/like3.png")}
+
             style={styles.bnameImage}
-          /> 
+          /><Text style={styles.firstlineTexts}>Brands Name</Text>
           </View>
+          
         </View>
       </View>
 
@@ -640,18 +670,32 @@ const SubCatgory = () => {
           <Text style={styles.recentReelsTitle}> You Might also Like</Text>
         </View>
         <View style={styles.reactRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/like4.png")}
             style={styles.bnameImage}
-          />
+          /><View style={styles.textContainer}>
+          <Text style={styles.text}>Dress</Text>
+          <Text style={styles.texts}>64% OFF</Text>
+          </View>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/like5.png")}
             style={styles.bnameImage}
-          />
+          /><View style={styles.textContainer}><Text style={styles.text}>Shorts</Text>
+          <Text style={styles.texts}>64% OFF</Text>
+          </View>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/like6.png")}
             style={styles.bnameImage}
-          />
+          /><View style={styles.textContainer}>
+          <Text style={styles.text}>Shorts</Text>
+          <Text style={styles.texts}>64% OFF</Text>
+          </View>
+          </View>
         </View>
       </View>
 
@@ -666,44 +710,75 @@ const SubCatgory = () => {
           </Text>
         </View>
         <View style={styles.reactRow}>
+          <View>
           <Image
             source={require("../assets/images/product-local/reel1.png")}
             style={styles.bnameImage}
-          />
+          /><Text style={styles.firstlineTexts}>Brands Name</Text>
+          
+          </View>
+          <View>
           <Image
             source={require("../assets/images/product-local/reel2.png")}
             style={styles.bnameImage}
-          />
+          /><Text style={styles.firstlineTexts}>Brands Name</Text>
+          </View>
+          <View>
           <Image
             source={require("../assets/images/product-local/reel3.png")}
             style={styles.bnameImage}
-          />
+          /><Text style={styles.firstlineTexts}>Brands Name</Text>
+          </View>
         </View>
       </View>
 
       <View style={styles.brandsSection}>
         <Text style={styles.recentReelsTitle}>You Might also Like</Text>
         <View style={styles.brandsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/cap1.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Western Dresses</Text>
+             
+          <Text style={styles.secondRowText}>10Km,  Nagpur</Text>
+          <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+          <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/cap2.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Western Dresses</Text>
+             
+          <Text style={styles.secondRowText}>10Km,  Nagpur</Text>
+          <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+          <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+          </View>
         </View>
       </View>
       <View style={styles.brandsSection}>
         <View style={styles.brandsRow}>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/cap3.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Western Dresses</Text>
+             
+          <Text style={styles.secondRowText}>10Km,  Nagpur</Text>
+          <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+          <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+          </View>
+          <View>
           <Image
             source={require("../assets/images/photoshoot/cap4.png")}
             style={styles.reelimage}
-          />
+          /><Text style={styles.firstRowText}>Western Dresses</Text>
+             
+          <Text style={styles.secondRowText}>10Km,  Nagpur</Text>
+          <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
+          <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
+          </View>
         </View>
       </View>
 
@@ -1054,6 +1129,7 @@ const styles = StyleSheet.create({
   },
   recentReelsTitle: {
     color: Colors.white,
+    marginTop:10,
   },
   recentTitle: {
     color: Colors.white,
@@ -1285,13 +1361,13 @@ const styles = StyleSheet.create({
   },textContainer: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
     position: 'absolute',
-    bottom:-5,
+    bottom:-27,
     width: '100%', // Full width of the image
     alignItems: 'left',
     padding: 0,
     width: '100%', // Full width of the image
     alignItems: 'center',
-    marginBottom:1,
+    marginBottom:5,
     borderWidth:1,
     borderColor:Colors.secondary,
     
@@ -1300,7 +1376,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 12,
     textAlign: 'left',
-    marginRight:45,
+    marginRight:65,
     fontWeight:'500',
   },
 texts:{
@@ -1311,6 +1387,30 @@ texts:{
   color:'#0698fb',
   fontWeight:'600',
   
+},firstlineTexts: {
+  marginLeft:12,
+  position:'absolute',
+  bottom:30,
+  color: '#0698fb',
+  fontWeight: '900',
+  fontSize:10,
+  textAlign:'center', 
+  left:15,
+  backgroundColor:'#F0F0F0',
+  borderColor:'#0698fb',
+  borderWidth:1,
+  padding: 5,
+  borderRadius:10,
+},
+plays:{
+  position:'absolute',
+  bottom:10,
+  marginLeft:138,
+},
+playss:{
+  position:'absolute',
+  bottom:10,
+  marginLeft:138,
 },
 });
 

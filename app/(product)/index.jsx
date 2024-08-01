@@ -824,7 +824,7 @@ padding:10,
     alignItems: 'center',
     marginBottom:1,
     borderWidth:1,
-    borderColor:Colors.secondary,
+    borderColor:Colors.white,
     
   },
   text: {
