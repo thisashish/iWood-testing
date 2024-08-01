@@ -9,7 +9,7 @@ import Group20Image from '../assets/images/Group 20.png';
 import Group18Image from '../assets/images/Group 18.png';
 import RectangleImage from '../assets/images/Rectangle.png';
 import Entypo from '@expo/vector-icons/Entypo';
-import { useNavigation } from "expo-router";
+import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../components/CustomButton';
 import FilterButton from '../components/FilterButton';
 import CustomSearchBar from '../components/CustomSearchBar';
