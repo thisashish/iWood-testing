@@ -307,7 +307,7 @@ const ProductPage = () => {
           <View style={styles.reactRow}>
             <View>
             <Image source={require('../assets/images/product-local/inf1.png')} style={styles.bnameImage} />
-            <AntDesign name="caretright" size={20} color="white"   style={styles.plays} />
+            <AntDesign name="caretright" size={18} color="white"   style={styles.plays} />
             <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
             </View>
             <View>
@@ -823,6 +823,9 @@ padding:10,
     width: '100%', // Full width of the image
     alignItems: 'center',
     marginBottom:1,
+    borderWidth:1,
+    borderColor:Colors.secondary,
+    
   },
   text: {
     color: 'white',
