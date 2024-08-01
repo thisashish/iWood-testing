@@ -29,6 +29,10 @@ const SubCatgory = () => {
     setSelectedButton(button);
   };
 
+  const handlePress = (productId) => {
+    navigation.navigate('ProductDetails', { productId });
+  };
+
   const renderSection = (title, seeMore, images, imageStyle) => (
     <View style={GStyle.sectionContainer}>
       <View style={GStyle.sectionHeader}>
@@ -395,6 +399,90 @@ const SubCatgory = () => {
       </View>
 
       <View style={styles.brandsSection}>
+          <View style={styles.brandsRow}>
+            <TouchableOpacity onPress={() => handlePress(1)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress1.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Western Dresses</Text>
+              <Text style={styles.secondRowText}>10Km, Nagpur</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handlePress(2)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress2.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Shorts Dresses</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.brandsSection}>
+          <View style={styles.brandsRow}>
+            <TouchableOpacity onPress={() => handlePress(3)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress3.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Shorts</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handlePress(4)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress4.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Shorts</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.brandsSection}>
+          <View style={styles.brandsRow}>
+            <TouchableOpacity onPress={() => handlePress(5)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress5.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Western Dresses</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handlePress(6)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress6.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Shorts Dresses</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.brandsSection}>
+          <View style={styles.brandsRow}>
+            <TouchableOpacity onPress={() => handlePress(7)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress7.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Shorts</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handlePress(8)}>
+              <Image
+                source={require("../assets/images/photoshoot/dress8.png")}
+                style={styles.reelimage}
+              />
+              <Text style={styles.firstRowText}>Shorts</Text>
+              <Text style={styles.secondRowText}>16.1Km, Nagpur</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+      {/* <View style={styles.brandsSection}>
         <View style={styles.brandsRow}>
           <View>
           <Image
@@ -490,7 +578,7 @@ const SubCatgory = () => {
              <Image source={require('../assets/images/product-local/circc.png')} style={styles.plays}/> 
           </View>
         </View>
-      </View>
+      </View> */}
 
       <View style={styles.brandsSection}>
         <Text style={styles.brandsTitle}>Stores you can’t miss</Text>
